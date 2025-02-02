@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxget0hnnjws2"]
+[gd_scene load_steps=12 format=3 uid="uid://cxget0hnnjws2"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_1s6e0"]
 [ext_resource type="PackedScene" uid="uid://cn868j3c36oqu" path="res://Player/player.tscn" id="1_iooef"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bw41waorrfe6q" path="res://Player/item.tscn" id="4_kjdv1"]
 [ext_resource type="Script" path="res://Player/ProjectileBuffs/damageProjectileBuff.gd" id="5_tu27j"]
 [ext_resource type="Texture2D" uid="uid://bxt4enwdhqc5q" path="res://Assets/carrot.png" id="6_fxqi0"]
+[ext_resource type="Script" path="res://Player/PlayerBuffs/speedBuff.gd" id="7_cn1fb"]
+[ext_resource type="Texture2D" uid="uid://cofplwomuqpkf" path="res://Assets/firework.png" id="8_xhrr8"]
 
 [sub_resource type="Curve2D" id="Curve2D_loi6d"]
 _data = {
@@ -18,6 +20,14 @@ script = ExtResource("5_tu27j")
 damage_increase = 2.0
 texture = ExtResource("6_fxqi0")
 upgrade_text = "Damage"
+single_use = false
+
+[sub_resource type="Resource" id="Resource_vwj1a"]
+script = ExtResource("7_cn1fb")
+speed_increase = 50.0
+texture = ExtResource("8_xhrr8")
+upgrade_text = "Speed"
+single_use = true
 
 [node name="Game" type="Node2D"]
 position = Vector2(2, 0)
@@ -49,3 +59,7 @@ rotation = 1.57491
 [node name="Item" parent="." instance=ExtResource("4_kjdv1")]
 position = Vector2(320, 485)
 buff = SubResource("Resource_af2cj")
+
+[node name="Item2" parent="." instance=ExtResource("4_kjdv1")]
+position = Vector2(533, 485)
+buff = SubResource("Resource_vwj1a")

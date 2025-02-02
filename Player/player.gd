@@ -29,8 +29,7 @@ func _physics_process(delta: float) -> void:
 		%Healthbar.value = health
 		if health <= 0:
 			health_depleted.emit()
-
-			
+	
 func _input(event):
 	# Shooting projectiles
 	if event.is_action_pressed("shoot"):

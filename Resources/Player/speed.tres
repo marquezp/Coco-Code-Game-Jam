@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SpeedBuff" load_steps=3 format=3 uid="uid://pi7ppc32uvns"]
+
+[ext_resource type="Script" path="res://Player/PlayerBuffs/speedBuff.gd" id="1_j5ra3"]
+[ext_resource type="Texture2D" uid="uid://cofplwomuqpkf" path="res://Assets/firework.png" id="2_22do0"]
+
+[resource]
+script = ExtResource("1_j5ra3")
+speed_increase = 50.0
+texture = ExtResource("2_22do0")
+upgrade_text = "Speed"
+single_use = true

@@ -10,6 +10,7 @@
 script = ExtResource("2_iubqe")
 texture = ExtResource("3_kkj1w")
 upgrade_text = "Nothing"
+single_use = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6xhjb"]
 
