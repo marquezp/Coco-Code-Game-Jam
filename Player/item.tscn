@@ -1,24 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://bw41waorrfe6q"]
+[gd_scene load_steps=8 format=3 uid="uid://bw41waorrfe6q"]
 
 [ext_resource type="Texture2D" uid="uid://bxt4enwdhqc5q" path="res://Assets/carrot.png" id="1_lur2d"]
-[ext_resource type="Script" path="res://Player/projectileBuff.gd" id="1_vo0rf"]
-[ext_resource type="Script" path="res://Player/ProjectileBuffs/damageProjectileBuff.gd" id="2_7185b"]
+[ext_resource type="Script" path="res://Player/item.gd" id="1_vo0rf"]
+[ext_resource type="Script" path="res://Player/baseBuff.gd" id="2_iubqe"]
+[ext_resource type="Texture2D" uid="uid://jmnmrxbs6w7i" path="res://Assets/icon.svg" id="3_kkj1w"]
 [ext_resource type="Script" path="res://Player/health_label.gd" id="3_s45wq"]
 
-[sub_resource type="Resource" id="Resource_ttrhh"]
-script = ExtResource("2_7185b")
-damage_increase = 2.0
-texture = ExtResource("1_lur2d")
-upgrade_text = "Damage"
+[sub_resource type="Resource" id="Resource_cig8n"]
+script = ExtResource("2_iubqe")
+texture = ExtResource("3_kkj1w")
+upgrade_text = "Nothing"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6xhjb"]
 
-[node name="ProjectileBuff" type="Area2D" node_paths=PackedStringArray("upgrade_label", "sprite")]
+[node name="Item" type="Area2D" node_paths=PackedStringArray("upgrade_label", "sprite")]
 collision_mask = 4
 script = ExtResource("1_vo0rf")
 upgrade_label = NodePath("UpgradeLabel")
 sprite = NodePath("Sprite2D")
-projectile_upgrade = SubResource("Resource_ttrhh")
+buff = SubResource("Resource_cig8n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6xhjb")

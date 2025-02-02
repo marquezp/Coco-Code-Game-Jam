@@ -8,9 +8,8 @@ const PROJECTILE = preload("res://Player/projectile.tscn")
 @export var health_regen: float = 0.0
 @export var health: float = 50.0
 
-# Projectile Buffs
-var projectile_buffs: Array[BaseProjectileBuff] = []
 # Player Buffs
+var buffs: Array[BaseBuff] = []
 
 # Signals
 signal health_depleted
@@ -40,5 +39,6 @@ func _input(event):
 		new_projectile.rotation = (position.angle_to_point(get_global_mouse_position()))
 		get_parent().add_child(new_projectile)
 		
-		for buff in projectile_buffs:
-			buff.apply_upgrade(new_projectile)
+		for buff in buffs:
+			buff.apply_projectile_upgrade(new_projectile)
+		
