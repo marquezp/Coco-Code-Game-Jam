@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var health = 3
+@export var health : float = 3.0
 
 @export var speed = 200.0
 @onready var player: CharacterBody2D = $"../Player"
@@ -12,5 +12,6 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(damage):
 	health -= damage
-	if health <= 0:
+	print("OW")
+	if health <= 0.0:
 		queue_free()

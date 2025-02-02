@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxt4enwdhqc5q"
-path="res://.godot/imported/carrot.png-931016aab35bc3ddae90a9637b8202d4.ctex"
+uid="uid://dp7ti05p8hyxr"
+path="res://.godot/imported/firework.png-ec45b7a777650d35a1b4a46ec133af29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/carrot.png"
-dest_files=["res://.godot/imported/carrot.png-931016aab35bc3ddae90a9637b8202d4.ctex"]
+source_file="res://Assets/Art/firework.png"
+dest_files=["res://.godot/imported/firework.png-ec45b7a777650d35a1b4a46ec133af29.ctex"]
 
 [params]
 
