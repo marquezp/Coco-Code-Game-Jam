@@ -1,7 +1,7 @@
 class_name DamageProjectileBuff
-extends BaseProjectileBuff
+extends BaseBuff
 
 @export var damage_increase := 2.0
 
-func apply_upgrade(projectile: Projectile):
+func apply_projectile_upgrade(projectile: Projectile):
 	projectile.damage += damage_increase

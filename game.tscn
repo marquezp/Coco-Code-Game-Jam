@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game.gd" id="1_1s6e0"]
 [ext_resource type="PackedScene" uid="uid://cn868j3c36oqu" path="res://Player/player.tscn" id="1_iooef"]
 [ext_resource type="PackedScene" uid="uid://cjvtgh41a6xj1" path="res://Enemies/enemy.tscn" id="2_rvko8"]
-[ext_resource type="PackedScene" uid="uid://bw41waorrfe6q" path="res://Player/projectileBuff.tscn" id="4_kjdv1"]
+[ext_resource type="PackedScene" uid="uid://bw41waorrfe6q" path="res://Player/item.tscn" id="4_kjdv1"]
 [ext_resource type="Script" path="res://Player/ProjectileBuffs/damageProjectileBuff.gd" id="5_tu27j"]
 [ext_resource type="Texture2D" uid="uid://bxt4enwdhqc5q" path="res://Assets/carrot.png" id="6_fxqi0"]
 
@@ -13,7 +13,7 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="Resource" id="Resource_46ftx"]
+[sub_resource type="Resource" id="Resource_af2cj"]
 script = ExtResource("5_tu27j")
 damage_increase = 2.0
 texture = ExtResource("6_fxqi0")
@@ -46,6 +46,6 @@ unique_name_in_owner = true
 position = Vector2(-56, -34)
 rotation = 1.57491
 
-[node name="Upgrade" parent="." instance=ExtResource("4_kjdv1")]
-position = Vector2(292, 459)
-projectile_upgrade = SubResource("Resource_46ftx")
+[node name="Item" parent="." instance=ExtResource("4_kjdv1")]
+position = Vector2(320, 485)
+buff = SubResource("Resource_af2cj")
