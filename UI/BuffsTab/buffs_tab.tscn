@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgkrpfyapxya1"]
+
+[ext_resource type="PackedScene" uid="uid://b1f6td0i0d5p3" path="res://UI/BuffsTab/buff_slot.tscn" id="1_f1t5k"]
+[ext_resource type="Script" path="res://UI/BuffsTab/Scripts/buffs_tab_ui.gd" id="1_ldnr3"]
+[ext_resource type="Script" path="res://UI/BuffsTab/Scripts/buffs_tab.gd" id="1_vwuww"]
+[ext_resource type="Resource" uid="uid://dqkbvbfvjtqcd" path="res://UI/player_buffs_tab.tres" id="3_wuloq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6w0pb"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.054902, 0.054902, 0.054902, 0.552941)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="BuffsTab" type="CanvasLayer"]
+script = ExtResource("1_vwuww")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 37.0
+offset_top = 22.0
+offset_right = 221.0
+offset_bottom = 62.0
+scale = Vector2(1.24, 1.24)
+theme_override_styles/panel = SubResource("StyleBoxFlat_6w0pb")
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+layout_mode = 2
+columns = 5
+script = ExtResource("1_ldnr3")
+data = ExtResource("3_wuloq")
+
+[node name="BuffSlot1" parent="PanelContainer/GridContainer" instance=ExtResource("1_f1t5k")]
+layout_mode = 2
+
+[node name="BuffSlot2" parent="PanelContainer/GridContainer" instance=ExtResource("1_f1t5k")]
+layout_mode = 2
+
+[node name="BuffSlot3" parent="PanelContainer/GridContainer" instance=ExtResource("1_f1t5k")]
+layout_mode = 2
+
+[node name="BuffSlot4" parent="PanelContainer/GridContainer" instance=ExtResource("1_f1t5k")]
+layout_mode = 2
+
+[node name="BuffSlot5" parent="PanelContainer/GridContainer" instance=ExtResource("1_f1t5k")]
+layout_mode = 2
+
+[node name="ItemDescription" type="Label" parent="."]
+custom_minimum_size = Vector2(250, 0)
+offset_left = 32.0
+offset_top = 81.0
+offset_right = 282.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+autowrap_mode = 3

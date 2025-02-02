@@ -13,15 +13,20 @@ config_version=5
 config/name="poison-game"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://Assets/icon.svg"
+config/icon="res://Assets/Art/icon.svg"
+
+[autoload]
+
+PlayerManager="*res://Player/player_manager.gd"
 
 [file_customization]
 
 folder_colors={
 "res://Assets/": "green",
 "res://Enemies/": "red",
+"res://Items/": "pink",
 "res://Player/": "blue",
-"res://Resources/": "yellow"
+"res://UI/": "teal"
 }
 
 [input]

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BuffTabData" load_steps=3 format=3 uid="uid://dqkbvbfvjtqcd"]
+
+[ext_resource type="Script" path="res://UI/BuffsTab/Scripts/buffs_tab_data.gd" id="1_o5pir"]
+[ext_resource type="Script" path="res://UI/BuffsTab/Scripts/slot_data.gd" id="2_tlywh"]
+
+[resource]
+script = ExtResource("1_o5pir")
+slots = Array[ExtResource("2_tlywh")]([null, null, null, null, null])

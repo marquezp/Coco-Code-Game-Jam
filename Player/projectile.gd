@@ -3,7 +3,7 @@ extends Area2D
 
 @onready var timer: Timer = $Timer
 @onready var speed: float = 1000.0
-@onready var damage: float = 1.0
+@onready var damage: float : set = _set_damage
 
 func _ready() -> void:
 	self.body_entered.connect(on_body_entered)
@@ -16,6 +16,9 @@ func on_timeout() -> void:
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.RIGHT.rotated(rotation)
 	position += direction * speed * delta
+	
+func _set_damage(value: float):
+	damage = value
 	
 func on_body_entered(body):
 	queue_free()
