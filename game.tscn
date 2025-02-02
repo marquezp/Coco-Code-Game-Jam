@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxget0hnnjws2"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_1s6e0"]
+[ext_resource type="PackedScene" uid="uid://cn868j3c36oqu" path="res://Player/player.tscn" id="1_iooef"]
+[ext_resource type="PackedScene" uid="uid://cjvtgh41a6xj1" path="res://Enemies/enemy.tscn" id="2_rvko8"]
+[ext_resource type="PackedScene" uid="uid://bw41waorrfe6q" path="res://Player/projectileBuff.tscn" id="4_kjdv1"]
+[ext_resource type="Script" path="res://Player/ProjectileBuffs/damageProjectileBuff.gd" id="5_tu27j"]
+[ext_resource type="Texture2D" uid="uid://bxt4enwdhqc5q" path="res://Assets/carrot.png" id="6_fxqi0"]
+
+[sub_resource type="Curve2D" id="Curve2D_loi6d"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -56, -34, 0, 0, 0, 0, -59, 696, 0, 0, 0, 0, 1186, 702, 0, 0, 0, 0, 1190, -43, 0, 0, 0, 0, -56, -34)
+}
+point_count = 5
+
+[sub_resource type="Resource" id="Resource_46ftx"]
+script = ExtResource("5_tu27j")
+damage_increase = 2.0
+texture = ExtResource("6_fxqi0")
+upgrade_text = "Damage"
+
+[node name="Game" type="Node2D"]
+position = Vector2(2, 0)
+script = ExtResource("1_1s6e0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -20
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.698039, 0.45098, 0.301961, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_iooef")]
+position = Vector2(466, 319)
+scale = Vector2(0.52, 0.52)
+
+[node name="Enemy" parent="." instance=ExtResource("2_rvko8")]
+position = Vector2(805, 139)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_loi6d")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-56, -34)
+rotation = 1.57491
+
+[node name="Upgrade" parent="." instance=ExtResource("4_kjdv1")]
+position = Vector2(292, 459)
+projectile_upgrade = SubResource("Resource_46ftx")

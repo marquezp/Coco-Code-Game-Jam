@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://cn868j3c36oqu"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_u0c6k"]
+[ext_resource type="Texture2D" uid="uid://jmnmrxbs6w7i" path="res://Assets/icon.svg" id="2_cu40j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6ins"]
+size = Vector2(116, 119)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sktkc"]
+radius = 60.075
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3cvls"]
+bg_color = Color(0.197937, 0.197937, 0.197937, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrdkw"]
+bg_color = Color(0.0458109, 0.556126, 0.24405, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_u0c6k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cu40j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_o6ins")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(1.32, 1.32)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_sktkc")
+debug_color = Color(0.760518, 0.273358, 0.44995, 0.42)
+
+[node name="Healthbar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -114.0
+offset_top = -108.0
+offset_right = 118.0
+offset_bottom = -81.0
+theme_override_styles/background = SubResource("StyleBoxFlat_3cvls")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xrdkw")
+max_value = 200.0
+value = 100.0
+show_percentage = false
