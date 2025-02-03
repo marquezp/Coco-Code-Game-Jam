@@ -1,30 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxget0hnnjws2"]
+[gd_scene load_steps=8 format=3 uid="uid://cxget0hnnjws2"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_1s6e0"]
 [ext_resource type="PackedScene" uid="uid://cn868j3c36oqu" path="res://Player/player.tscn" id="1_iooef"]
-[ext_resource type="PackedScene" uid="uid://cjvtgh41a6xj1" path="res://Enemies/enemy.tscn" id="2_rvko8"]
 [ext_resource type="PackedScene" uid="uid://dgkrpfyapxya1" path="res://UI/BuffsTab/buffs_tab.tscn" id="4_7kfyx"]
-[ext_resource type="Script" path="res://Enemies/Scripts/drop_data.gd" id="4_m3ble"]
 [ext_resource type="PackedScene" uid="uid://cjtvqtoe8hlsl" path="res://Items/ItemPickup/item_pickup.tscn" id="5_n7l26"]
 [ext_resource type="Resource" uid="uid://b8tq6ut8630ms" path="res://Items/damage.tres" id="6_5xevu"]
 [ext_resource type="Resource" uid="uid://cbsojg3tvsv7q" path="res://Items/speed.tres" id="7_75k0q"]
-
-[sub_resource type="Resource" id="Resource_sa5s2"]
-script = ExtResource("4_m3ble")
-item = ExtResource("6_5xevu")
-probability = 100.0
-min_amount = 1
-max_amount = 1
-
-[sub_resource type="Curve2D" id="Curve2D_loi6d"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -56, -34, 0, 0, 0, 0, -59, 696, 0, 0, 0, 0, 1186, 702, 0, 0, 0, 0, 1190, -43, 0, 0, 0, 0, -56, -34)
-}
-point_count = 5
+[ext_resource type="PackedScene" uid="uid://cj7l0bu464kl1" path="res://Utilities/enemy_spawner.tscn" id="9_fy3u6"]
 
 [node name="Game" type="Node2D"]
 position = Vector2(2, 0)
 script = ExtResource("1_1s6e0")
+
+[node name="EnemySpawner" parent="." instance=ExtResource("9_fy3u6")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -20
@@ -34,20 +22,8 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.698039, 0.45098, 0.301961, 1)
 
-[node name="Player" parent="." instance=ExtResource("1_iooef")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_iooef")]
 position = Vector2(506, 365)
-
-[node name="Enemy" parent="." instance=ExtResource("2_rvko8")]
-position = Vector2(805, 139)
-drops = Array[ExtResource("4_m3ble")]([SubResource("Resource_sa5s2"), null])
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_loi6d")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-unique_name_in_owner = true
-position = Vector2(-56, -34)
-rotation = 1.57491
 
 [node name="BuffsTab" parent="." instance=ExtResource("4_7kfyx")]
 

@@ -10,7 +10,6 @@ func add_item( item: ItemData , count: int = 1 ) -> bool:
 				s.quantity += count
 				return true
 	for i in slots.size():
-		print("creating new slot")
 		if slots[i] == null:
 			var new = SlotData.new()
 			new.item_data = item

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SpawnInfo" load_steps=2 format=3 uid="uid://dw5rg77hqe28o"]
+
+[ext_resource type="Script" path="res://Utilities/spawn_info.gd" id="1_lboml"]
+
+[resource]
+script = ExtResource("1_lboml")
+total_time = 10
+spawn_delay = 1
+spawn_num = 1
+enemy_list = Array[int]([1])

@@ -17,7 +17,6 @@ func update_buffs_tab() -> void:
 	for s in data.slots:
 		var new_slot = BUFF_SLOT.instantiate()
 		add_child(new_slot)
-		print("Buff Tab: ", new_slot)
 		new_slot.slot_data = s
 		
 	

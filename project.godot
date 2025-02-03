@@ -19,6 +19,7 @@ config/icon="res://Assets/Art/icon.svg"
 
 PlayerManager="*res://Player/player_manager.gd"
 ShopManager="*res://UI/Shop/Scripts/shop_manager.gd"
+WaveManager="*res://Utilities/wave_manager.gd"
 
 [file_customization]
 
@@ -27,7 +28,8 @@ folder_colors={
 "res://Enemies/": "red",
 "res://Items/": "pink",
 "res://Player/": "blue",
-"res://UI/": "teal"
+"res://UI/": "teal",
+"res://Utilities/": "gray"
 }
 
 [input]
