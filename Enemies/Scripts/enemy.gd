@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 const BLOOD = preload("res://Items/blood.tres")
 
@@ -9,6 +9,7 @@ const PICKUP = preload("res://Items/ItemPickup/item_pickup.tscn")
 @export var health : float = 3.0
 @export var speed = 200.0
 @onready var player: CharacterBody2D = $"../Player"
+@onready var direction: Vector2
 
 @export_category("Item Drops")
 @export var drops : Array[DropData]
@@ -16,10 +17,11 @@ const PICKUP = preload("res://Items/ItemPickup/item_pickup.tscn")
 func _ready():
 	load_drops()
 	
-func _physics_process(delta: float) -> void:
-	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * speed
-	move_and_slide()
+func _process(delta: float) -> void:
+	direction = global_position.direction_to(player.global_position)
+	var distance_to_player = global_position.distance_to(player.global_position)
+	if distance_to_player > 50:
+		global_position += direction * speed * delta
 
 func take_damage(damage):
 	health -= damage
@@ -50,4 +52,4 @@ func drop_items() -> void:
 			drop.item_data = drops[i].item
 			get_parent().call_deferred("add_child", drop)
 			drop.global_position = global_position
-			drop.velocity = velocity.rotated(randf_range(-1.5,1.5) * randf_range(0.9, 1.5))
+			drop.velocity = direction.rotated(randf_range(-1.5,1.5) * randf_range(0.9, 1.5) * speed)

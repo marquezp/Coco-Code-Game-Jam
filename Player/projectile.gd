@@ -6,7 +6,7 @@ extends Area2D
 @onready var damage: float : set = _set_damage
 
 func _ready() -> void:
-	self.body_entered.connect(on_body_entered)
+	self.area_entered.connect(on_area_entered)
 	timer.start()
 	timer.timeout.connect(on_timeout)
 	
@@ -20,9 +20,9 @@ func _physics_process(delta: float) -> void:
 func _set_damage(value: float):
 	damage = value
 	
-func on_body_entered(body):
-	queue_free()
-	if body.has_method("take_damage"):
-		body.take_damage(damage)
+func on_area_entered(area):
+	if area.has_method("take_damage"):
+		area.take_damage(damage)
+		queue_free()
 		
 	

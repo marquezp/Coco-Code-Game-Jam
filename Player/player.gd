@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	# Enemy hitbox detection
-	var overlapping_enemies = %HurtBox.get_overlapping_bodies()
+	var overlapping_enemies = %HurtBox.get_overlapping_areas()
 	if overlapping_enemies.size() > 0:
 		health -= damage_taken * overlapping_enemies.size() * delta
 		%Healthbar.value = health
