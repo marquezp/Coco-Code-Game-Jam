@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dsi73hg51us01" path="res://Assets/Art/Shadow.png" id="2_pfc2b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8t7a"]
+radius = 7.35294
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 3
@@ -21,6 +22,6 @@ scale = Vector2(0.01, 0.01)
 texture = ExtResource("2_6npqg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -1)
+position = Vector2(1.42109e-14, -1.42109e-14)
 scale = Vector2(1.36, 1.36)
 shape = SubResource("CircleShape2D_e8t7a")

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://jmnmrxbs6w7i" path="res://Assets/Art/icon.svg" id="2_cu40j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6ins"]
-size = Vector2(116, 119)
+size = Vector2(110, 112)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sktkc"]
 radius = 60.075
@@ -33,7 +33,7 @@ script = ExtResource("1_u0c6k")
 texture = ExtResource("2_cu40j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -0.5)
+position = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_o6ins")
 
 [node name="Camera2D" type="Camera2D" parent="."]

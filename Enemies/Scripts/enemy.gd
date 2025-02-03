@@ -1,13 +1,14 @@
 extends CharacterBody2D
 
 const BLOOD = preload("res://Items/blood.tres")
-
 const DAMAGE = preload("res://Items/damage.tres")
 const SPEED = preload("res://Items/speed.tres")
-
 const PICKUP = preload("res://Items/ItemPickup/item_pickup.tscn")
+const PLAYER_SPRITE_SIZE = 52
+
 @export var health : float = 3.0
 @export var speed = 200.0
+
 @onready var player: CharacterBody2D = $"../Player"
 
 @export_category("Item Drops")
@@ -18,7 +19,11 @@ func _ready():
 	
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * speed
+	var distance_to_player = global_position.distance_to(player.global_position)
+	if distance_to_player > PLAYER_SPRITE_SIZE:
+		velocity = direction * speed
+	else:
+		velocity = Vector2(0,0)
 	move_and_slide()
 
 func take_damage(damage):
