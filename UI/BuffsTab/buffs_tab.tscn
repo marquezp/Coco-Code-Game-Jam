@@ -3,18 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://b1f6td0i0d5p3" path="res://UI/BuffsTab/buff_slot.tscn" id="1_f1t5k"]
 [ext_resource type="Script" path="res://UI/BuffsTab/Scripts/buffs_tab_ui.gd" id="1_ldnr3"]
 [ext_resource type="Script" path="res://UI/BuffsTab/Scripts/buffs_tab.gd" id="1_vwuww"]
-[ext_resource type="Resource" uid="uid://dqkbvbfvjtqcd" path="res://UI/player_buffs_tab.tres" id="3_wuloq"]
+[ext_resource type="Resource" uid="uid://dqkbvbfvjtqcd" path="res://UI/BuffsTab/player_buffs_tab.tres" id="3_wuloq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6w0pb"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 bg_color = Color(0.054902, 0.054902, 0.054902, 0.552941)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="BuffsTab" type="CanvasLayer"]
 script = ExtResource("1_vwuww")

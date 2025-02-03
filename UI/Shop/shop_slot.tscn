@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdawlfek67s3s"]
+
+[ext_resource type="Script" path="res://UI/Shop/Scripts/shop_slot_ui.gd" id="1_d36ra"]
+[ext_resource type="Texture2D" uid="uid://bxt4enwdhqc5q" path="res://Assets/Art/carrot.png" id="1_qi84c"]
+
+[node name="ShopSlot" type="Button"]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("1_d36ra")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("1_qi84c")
+stretch_mode = 3

@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
 const PROJECTILE = preload("res://Player/projectile.tscn")
-const BUFF_TAB_DATA: BuffTabData = preload("res://UI/player_buffs_tab.tres")
+const BUFF_TAB_DATA: BuffTabData = preload("res://UI/BuffsTab/player_buffs_tab.tres")
 
 # Player attributes
 @export var damage: float = 1.0

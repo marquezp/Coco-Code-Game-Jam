@@ -1,10 +1,11 @@
 extends Node
 
-const BUFFS_TAB_DATA = preload("res://UI/player_buffs_tab.tres")
+const BUFFS_TAB_DATA = preload("res://UI/BuffsTab/player_buffs_tab.tres")
 
 @onready var player = get_node("/root/Game/Player")
 
 signal update_buff_ui
+signal update_shop_ui
 
 func update_blood(blood_amount):
 	player.blood += blood_amount
