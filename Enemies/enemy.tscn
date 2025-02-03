@@ -1,13 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjvtgh41a6xj1"]
+[gd_scene load_steps=5 format=3 uid="uid://cjvtgh41a6xj1"]
 
-[ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_kyvlf"]
+[ext_resource type="Script" path="res://Enemies/Scripts/enemy.gd" id="1_kyvlf"]
 [ext_resource type="Texture2D" uid="uid://u01mxu5o2kph" path="res://Assets/Art/ghost.png" id="2_6npqg"]
+[ext_resource type="Texture2D" uid="uid://dsi73hg51us01" path="res://Assets/Art/Shadow.png" id="2_pfc2b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8t7a"]
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 3
+motion_mode = 1
 script = ExtResource("1_kyvlf")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.215686)
+position = Vector2(0, 20)
+texture = ExtResource("2_pfc2b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.01, 0.01)

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://e7hli4tg7elm"]
+
+[ext_resource type="Script" path="res://Items/ItemEffects/item_effect.gd" id="1_2llpn"]
+[ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="2_hcnei"]
+[ext_resource type="Script" path="res://Items/ItemEffects/item_effect_blood.gd" id="2_tm5pb"]
+[ext_resource type="Texture2D" uid="uid://lc3v13vht84p" path="res://Assets/Art/blood.png" id="3_crnpd"]
+
+[sub_resource type="Resource" id="Resource_x34gl"]
+script = ExtResource("2_tm5pb")
+blood_amount = 1.0
+description = ""
+
+[resource]
+script = ExtResource("2_hcnei")
+name = "Blood"
+description = "The Shopkeeper wants this"
+texture = ExtResource("3_crnpd")
+effects = Array[ExtResource("1_2llpn")]([SubResource("Resource_x34gl")])

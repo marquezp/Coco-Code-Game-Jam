@@ -10,6 +10,9 @@ const BUFF_TAB_DATA: BuffTabData = preload("res://UI/player_buffs_tab.tres")
 @export var health_regen: float = 0.0
 @export var health: float = 50.0
 
+# Blood (currency for shop)
+@export var blood : int = 0
+
 # Signals
 signal health_depleted
 

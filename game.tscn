@@ -1,12 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxget0hnnjws2"]
+[gd_scene load_steps=11 format=3 uid="uid://cxget0hnnjws2"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_1s6e0"]
 [ext_resource type="PackedScene" uid="uid://cn868j3c36oqu" path="res://Player/player.tscn" id="1_iooef"]
 [ext_resource type="PackedScene" uid="uid://cjvtgh41a6xj1" path="res://Enemies/enemy.tscn" id="2_rvko8"]
 [ext_resource type="PackedScene" uid="uid://dgkrpfyapxya1" path="res://UI/BuffsTab/buffs_tab.tscn" id="4_7kfyx"]
+[ext_resource type="Script" path="res://Enemies/Scripts/drop_data.gd" id="4_m3ble"]
 [ext_resource type="PackedScene" uid="uid://cjtvqtoe8hlsl" path="res://Items/ItemPickup/item_pickup.tscn" id="5_n7l26"]
 [ext_resource type="Resource" uid="uid://b8tq6ut8630ms" path="res://Items/damage.tres" id="6_5xevu"]
 [ext_resource type="Resource" uid="uid://cbsojg3tvsv7q" path="res://Items/speed.tres" id="7_75k0q"]
+
+[sub_resource type="Resource" id="Resource_sa5s2"]
+script = ExtResource("4_m3ble")
+item = ExtResource("6_5xevu")
+probability = 100.0
+min_amount = 1
+max_amount = 1
 
 [sub_resource type="Curve2D" id="Curve2D_loi6d"]
 _data = {
@@ -31,6 +39,7 @@ position = Vector2(506, 365)
 
 [node name="Enemy" parent="." instance=ExtResource("2_rvko8")]
 position = Vector2(805, 139)
+drops = Array[ExtResource("4_m3ble")]([SubResource("Resource_sa5s2"), null])
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_loi6d")
@@ -43,9 +52,13 @@ rotation = 1.57491
 [node name="BuffsTab" parent="." instance=ExtResource("4_7kfyx")]
 
 [node name="ItemPickup" parent="." instance=ExtResource("5_n7l26")]
-position = Vector2(460, 532)
+position = Vector2(419, 539)
 item_data = ExtResource("6_5xevu")
 
 [node name="ItemPickup2" parent="." instance=ExtResource("5_n7l26")]
 position = Vector2(229, 525)
+item_data = ExtResource("7_75k0q")
+
+[node name="ItemPickup3" parent="." instance=ExtResource("5_n7l26")]
+position = Vector2(238, 339)
 item_data = ExtResource("7_75k0q")

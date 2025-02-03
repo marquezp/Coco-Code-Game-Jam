@@ -5,7 +5,7 @@ class_name ItemData extends Resource
 @export var texture : Texture2D
 
 @export_category("Item Use Effects")
-@export var effects : Array[ItemEffect] # so we can use multiple effects in an item
+@export var effects : Array[ItemEffect] # so we can use multiple effects on an item
 
 func use() -> bool:
 	if effects.size() == 0:

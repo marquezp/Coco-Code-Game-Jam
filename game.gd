@@ -1,5 +1,6 @@
 extends Node2D
 
+
 func _ready():
 	spawn_enemy()
 	spawn_enemy()

@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://Items/ItemEffects/item_effect_speed.gd" id="2_1f5ut"]
 [ext_resource type="Texture2D" uid="uid://dp7ti05p8hyxr" path="res://Assets/Art/firework.png" id="4_u8ejx"]
 
-[sub_resource type="Resource" id="Resource_l1roe"]
+[sub_resource type="Resource" id="Resource_00rr4"]
 script = ExtResource("2_1f5ut")
-speed_amount = 400.0
+speed_amount = 200.0
 description = ""
 
 [resource]
@@ -15,4 +15,4 @@ script = ExtResource("1_o6tck")
 name = "Speed"
 description = "Increases player movement speed"
 texture = ExtResource("4_u8ejx")
-effects = Array[ExtResource("1_rrn1g")]([SubResource("Resource_l1roe")])
+effects = Array[ExtResource("1_rrn1g")]([SubResource("Resource_00rr4")])

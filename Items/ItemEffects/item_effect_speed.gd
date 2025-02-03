@@ -1,6 +1,6 @@
 class_name ItemEffectSpeed extends ItemEffect
 
-@export var speed_amount : float = 400.0
+@export var speed_amount : float = 100.0
 @export var sound: AudioStream = null
 
 func use() -> void:

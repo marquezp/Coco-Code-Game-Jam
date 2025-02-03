@@ -26,9 +26,10 @@ corner_radius_bottom_left = 8
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 collision_layer = 4
+motion_mode = 1
 script = ExtResource("1_u0c6k")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PlayerSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_cu40j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
