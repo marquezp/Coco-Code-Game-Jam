@@ -3,14 +3,17 @@ class_name ShopData extends Resource
 @export var slots : Array[ItemData]
 
 func add_item( item: ItemData ) -> bool:
+	print(item.name)
+	# This implementation doesnt allow dupes in the shop
 	for s in slots:
 		if s:
-			return false
+			if s.name == item.name:
+				print("Item already in shop!")
+				return false
 	for i in slots.size():
-		print("creating new shop slot")
 		if slots[i] == null:
-			var new = SlotData.new()
-			new.item_data = item
+			var new = ItemData.new()
+			new = item
 			slots[i] = new
 			return true
 			

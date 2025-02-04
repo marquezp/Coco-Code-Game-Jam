@@ -19,3 +19,7 @@ func add_item( item: ItemData , count: int = 1 ) -> bool:
 			
 	print("Inventory was full")
 	return false
+	
+func remove_item(index: int) -> void:
+	slots[index] = null
+	

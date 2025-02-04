@@ -10,7 +10,7 @@ content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-bg_color = Color(0.054902, 0.054902, 0.054902, 0.4)
+bg_color = Color(0, 0, 0, 0.345098)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -19,27 +19,26 @@ corner_radius_bottom_left = 10
 [node name="Shop" type="CanvasLayer"]
 script = ExtResource("1_l3n5w")
 
-[node name="MainPanel" type="Panel" parent="."]
-modulate = Color(1, 1, 1, 0.521569)
+[node name="MainPanel" type="ColorRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -325.0
-offset_top = -239.0
+offset_top = -209.0
 offset_right = 348.0
-offset_bottom = 194.0
+offset_bottom = 224.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6w0pb")
+color = Color(0.531725, 0.273198, 0.250967, 1)
 
 [node name="Items" type="PanelContainer" parent="MainPanel"]
 layout_mode = 0
 offset_left = 249.0
 offset_top = 76.0
-offset_right = 385.0
-offset_bottom = 116.0
+offset_right = 405.0
+offset_bottom = 128.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_6w0pb")
 
 [node name="GridContainer" type="GridContainer" parent="MainPanel/Items"]
@@ -64,12 +63,32 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="CleanseButton" type="Button" parent="MainPanel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 350.0
+offset_right = 87.0
+offset_bottom = 370.0
+scale = Vector2(3.04, 3.04)
+theme_override_font_sizes/font_size = 8
+text = "Cleanse Poisons"
+
+[node name="NextWaveButton" type="Button" parent="MainPanel"]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 347.0
+offset_right = 521.0
+offset_bottom = 367.0
+scale = Vector2(3.04, 3.04)
+theme_override_font_sizes/font_size = 8
+text = "Next Wave"
+
 [node name="ItemDescription" type="Label" parent="."]
 custom_minimum_size = Vector2(250, 0)
 offset_left = 457.0
-offset_top = 218.0
+offset_top = 248.0
 offset_right = 707.0
-offset_bottom = 241.0
+offset_bottom = 271.0
 theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 autowrap_mode = 3

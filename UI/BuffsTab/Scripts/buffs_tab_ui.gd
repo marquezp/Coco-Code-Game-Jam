@@ -13,6 +13,7 @@ func clear_buffs_tab() -> void:
 		child.queue_free()
 
 func update_buffs_tab() -> void:
+	print("Got here")
 	clear_buffs_tab()
 	for s in data.slots:
 		var new_slot = BUFF_SLOT.instantiate()

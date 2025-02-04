@@ -17,7 +17,6 @@ func begin(wave_info: SpawnInfo):
 	timer.start()
 	
 func spawn():
-	print(time)
 	if time < spawn_info.total_time:
 		time += timer.wait_time
 		var enemy_num : int = spawn_info.enemy_list.pick_random()

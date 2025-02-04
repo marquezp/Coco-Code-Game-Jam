@@ -6,7 +6,7 @@ const SHOP_SLOT = preload("res://UI/Shop/shop_slot.tscn")
 
 func _ready() -> void:
 	update_items_tab()
-	PlayerManager.update_shop_ui.connect(update_items_tab)
+	ShopManager.update_shop_ui.connect(update_items_tab)
 
 func clear_items_tab() -> void:
 	for child in get_children():
