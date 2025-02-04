@@ -14,5 +14,6 @@ description = ""
 script = ExtResource("2_hcnei")
 name = "Blood"
 description = "The Shopkeeper wants this"
+shop_cost = 1
 texture = ExtResource("3_crnpd")
 effects = Array[ExtResource("1_2llpn")]([SubResource("Resource_x34gl")])

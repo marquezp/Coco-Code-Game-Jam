@@ -5,8 +5,8 @@ class_name ItemPickup extends CharacterBody2D
 
 @onready var area_2d: Area2D = $Area2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var sound_effect: AudioStreamPlayer2D = $SoundEffect
-
+@onready var blood_pickup_sound: AudioStreamPlayer2D = $BloodPickupSound
+@onready var item_pickup_sound: AudioStreamPlayer2D = $ItemPickupSound
 
 func _ready() -> void:
 	_update_texture()
@@ -20,7 +20,6 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.bounce(collision_info.get_normal())
 	velocity -= velocity * delta * 4
 	
-	
 func _on_body_entered(body) -> void:
 	if body is Player:
 		if item_data:
@@ -28,10 +27,11 @@ func _on_body_entered(body) -> void:
 				item_picked_up()
 				
 func item_picked_up() -> void:
+	var sound_effect: AudioStreamPlayer2D = blood_pickup_sound
+	if item_data.name != "Blood":
+		sound_effect = item_pickup_sound
 	area_2d.body_entered.disconnect(_on_body_entered)
 	sound_effect.play()
-	# Use the item's upgrade
-	item_data.use()
 	visible = false
 	await sound_effect.finished
 	queue_free()

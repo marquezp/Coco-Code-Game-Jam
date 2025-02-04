@@ -33,6 +33,14 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.531725, 0.273198, 0.250967, 1)
 
+[node name="ShopTitle" type="Label" parent="MainPanel"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 17.0
+offset_right = 424.0
+offset_bottom = 40.0
+text = "PIERRE'S POISON PALACE"
+
 [node name="Items" type="PanelContainer" parent="MainPanel"]
 layout_mode = 0
 offset_left = 249.0

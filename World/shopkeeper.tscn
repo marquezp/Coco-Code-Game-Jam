@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl6ffpcnvblp3"]
+
+[ext_resource type="Script" path="res://World/shopkeeper.gd" id="1_8g643"]
+[ext_resource type="Texture2D" uid="uid://jmnmrxbs6w7i" path="res://Assets/Art/icon.svg" id="1_oavdg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q41gm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cfdkr"]
+radius = 10.299
+
+[node name="Shopkeeper" type="CharacterBody2D"]
+script = ExtResource("1_8g643")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.813111, 6.72868e-05, 0.637032, 1)
+texture = ExtResource("1_oavdg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6.64, 6.64)
+shape = SubResource("CircleShape2D_q41gm")
+
+[node name="InteractRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRadius"]
+scale = Vector2(12.72, 12.72)
+shape = SubResource("CircleShape2D_cfdkr")
+debug_color = Color(0.170477, 0.481931, 0.296547, 0.42)

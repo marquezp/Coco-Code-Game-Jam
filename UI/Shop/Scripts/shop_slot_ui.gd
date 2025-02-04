@@ -9,13 +9,19 @@ func _ready() -> void:
 	texture_rect.texture = null
 	mouse_entered.connect(item_focused)
 	mouse_exited.connect(item_unfocused)
+	pressed.connect(item_pressed)
 
 func set_item_data(value:ItemData) -> void:
 	item_data = value
 	if item_data == null:
 		return
 	texture_rect.texture = item_data.texture
-
+	
+func item_pressed() -> void:
+	if item_data == null:
+		return
+	ShopManager.buy_item(item_data)
+	
 func item_focused() -> void:
 	if item_data != null:
 		shop.update_item_description(item_data.description)

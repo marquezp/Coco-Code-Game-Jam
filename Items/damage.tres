@@ -14,5 +14,6 @@ description = ""
 script = ExtResource("1_c2loi")
 name = "Damage"
 description = "Increases projectile damage"
+shop_cost = 5
 texture = ExtResource("4_fbs16")
 effects = Array[ExtResource("1_d0u75")]([SubResource("Resource_dhjx1")])

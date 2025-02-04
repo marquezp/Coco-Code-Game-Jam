@@ -16,4 +16,3 @@ func _on_next_wave_pressed():
 	
 func _on_cleanse_button_pressed():
 	PlayerManager.remove_buffs()
-	print("Button Pressed")

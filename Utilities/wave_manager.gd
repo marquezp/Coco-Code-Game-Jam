@@ -14,10 +14,10 @@ var enemies_to_kill: int
 func _ready():
 	# Need to call this from another script (on game start, on finished shopping)
 	start_next_wave()
+
 	
 func update_enemy_deaths(value):
 	enemies_dead = value
-	print("dead_enemies: ", enemies_dead)
 	if enemies_dead == enemies_to_kill:
 		wave_over()
 	
@@ -31,5 +31,5 @@ func wave_over():
 	enemies_dead = 0
 	current_wave_index += 1
 	current_wave = WAVES[current_wave_index]
-	ShopManager.open_shop()
+	ShopManager.spawn_shop()
 	
