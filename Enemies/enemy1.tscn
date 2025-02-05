@@ -1,25 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjvtgh41a6xj1"]
+[gd_scene load_steps=6 format=3 uid="uid://cjvtgh41a6xj1"]
 
-[ext_resource type="Script" path="res://Enemies/Scripts/enemy.gd" id="1_kyvlf"]
-[ext_resource type="Texture2D" uid="uid://u01mxu5o2kph" path="res://Assets/Art/ghost.png" id="2_6npqg"]
-[ext_resource type="Texture2D" uid="uid://dsi73hg51us01" path="res://Assets/Art/Shadow.png" id="2_pfc2b"]
+[ext_resource type="Script" path="res://Enemies/Scripts/enemy1.gd" id="1_ajl30"]
+[ext_resource type="Resource" uid="uid://b3hasqdxbn6dy" path="res://Enemies/Resources/enemy1.tres" id="2_ojvdq"]
+[ext_resource type="Texture2D" uid="uid://dsi73hg51us01" path="res://Assets/Art/Shadow.png" id="2_p5jrm"]
+[ext_resource type="Texture2D" uid="uid://u01mxu5o2kph" path="res://Assets/Art/ghost.png" id="3_y8xq4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8t7a"]
 radius = 7.35294
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy1" type="CharacterBody2D"]
 collision_layer = 3
 motion_mode = 1
-script = ExtResource("1_kyvlf")
+script = ExtResource("1_ajl30")
+data = ExtResource("2_ojvdq")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.215686)
 position = Vector2(0, 20)
-texture = ExtResource("2_pfc2b")
+texture = ExtResource("2_p5jrm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.01, 0.01)
-texture = ExtResource("2_6npqg")
+texture = ExtResource("3_y8xq4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.42109e-14, -1.42109e-14)
@@ -34,3 +36,7 @@ collision_mask = 2
 position = Vector2(1.42109e-14, -1.42109e-14)
 scale = Vector2(1.36, 1.36)
 shape = SubResource("CircleShape2D_e8t7a")
+
+[node name="SpecialAttackTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true

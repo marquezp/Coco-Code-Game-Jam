@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://b3hasqdxbn6dy"]
+
+[ext_resource type="Script" path="res://Enemies/Scripts/drop_data.gd" id="1_tnra1"]
+[ext_resource type="Script" path="res://Enemies/Scripts/enemy_data.gd" id="2_4oqyh"]
+
+[resource]
+script = ExtResource("2_4oqyh")
+health = 3.0
+damage = 1.0
+speed = 200.0
+drops = Array[ExtResource("1_tnra1")]([null])

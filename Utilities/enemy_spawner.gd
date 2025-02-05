@@ -1,7 +1,7 @@
 extends Node2D
 
 # ADD ALL ENEMY PRELOADS HERE
-const ENEMY1 = preload("res://Enemies/enemy.tscn")
+const ENEMY1 = preload("res://Enemies/enemy1.tscn")
 
 var time: int = 0
 var timer: Timer
@@ -28,8 +28,9 @@ func spawn():
 		if enemy:
 			# Adds as many enemies as spawn_num wants
 			for i in range(spawn_info.spawn_num):
-				var enemy_spawn: CharacterBody2D = enemy.instantiate()
+				var enemy_spawn: BaseEnemy = enemy.instantiate()
 				enemy_spawn.global_position = get_random_position()
+				enemy_spawn.load_drops()
 				add_child(enemy_spawn)
 	else:
 		timer.timeout.disconnect(spawn)

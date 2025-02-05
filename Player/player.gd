@@ -35,6 +35,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	
 	# Enemy hitbox detection
+	#TODO add the damage from each monster individually here
 	var overlapping_enemies = %PlayerHurtBox.get_overlapping_bodies()
 	if overlapping_enemies.size() > 0:
 		health -= damage_taken * overlapping_enemies.size() * delta
