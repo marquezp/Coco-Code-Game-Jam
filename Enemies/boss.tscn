@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://cwewcqn1hnlhe"]
+
+[ext_resource type="Texture2D" uid="uid://dsi73hg51us01" path="res://Assets/Art/Shadow.png" id="1_rncah"]
+[ext_resource type="Script" path="res://Enemies/Scripts/boss.gd" id="1_yok5c"]
+[ext_resource type="Resource" uid="uid://c3u1brege3qck" path="res://Enemies/Resources/boss.tres" id="2_tpjvr"]
+[ext_resource type="Texture2D" uid="uid://dorw3ky5x3w30" path="res://Assets/Art/Minotaur.png" id="4_fb2wt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4qkj"]
+atlas = ExtResource("4_fb2wt")
+region = Rect2(28, 23, 52, 41)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6eegl"]
+radius = 7.35294
+
+[sub_resource type="Animation" id="Animation_bhf2y"]
+resource_name = "jump"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -40), Vector2(0, -80), Vector2(0, -40), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qtw55"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_88swf"]
+_data = {
+"RESET": SubResource("Animation_qtw55"),
+"jump": SubResource("Animation_bhf2y")
+}
+
+[node name="Boss" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+collision_layer = 3
+script = ExtResource("1_yok5c")
+data = ExtResource("2_tpjvr")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.215686)
+position = Vector2(0, 20)
+scale = Vector2(1.21, 1.21)
+texture = ExtResource("1_rncah")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_q4qkj")
+
+[node name="Pivot" type="Marker2D" parent="Sprite2D"]
+position = Vector2(-7, 0)
+
+[node name="FiringPoint" type="Marker2D" parent="Sprite2D/Pivot"]
+position = Vector2(26, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.42109e-14, -1.42109e-14)
+scale = Vector2(2.3, 2.3)
+shape = SubResource("CircleShape2D_6eegl")
+
+[node name="Hitbox" type="Area2D" parent="."]
+scale = Vector2(1.69, 1.69)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(1.42109e-14, -1.42109e-14)
+scale = Vector2(1.37183, 1.37183)
+shape = SubResource("CircleShape2D_6eegl")
+
+[node name="SpecialAttackTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_88swf")
+}

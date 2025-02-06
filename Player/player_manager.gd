@@ -2,10 +2,15 @@ extends Node
 
 const BUFFS_TAB_DATA = preload("res://UI/BuffsTab/player_buffs_tab.tres")
 
-@onready var player = get_node("/root/Game/Player")
+var player: CharacterBody2D
 
 signal update_buff_ui
+signal player_ready
 
+func get_player(player_instance: CharacterBody2D) -> void:
+	player = player_instance
+	player_ready.emit()
+	
 func set_input_allowed(value: bool) -> void:
 	player.input_allowed = value
 
@@ -42,7 +47,6 @@ func remove_buffs() -> void:
 	
 func reset_player_stats() -> void:
 	player.damage = player.base_damage
-	player.health = player.base_health
 	player.speed = player.base_speed
 	player.health_regen = player.base_health_regen
 	player.damage_taken = player.base_damage_taken

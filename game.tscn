@@ -1,32 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxget0hnnjws2"]
+[gd_scene load_steps=8 format=3 uid="uid://cxget0hnnjws2"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_1s6e0"]
-[ext_resource type="PackedScene" uid="uid://cn868j3c36oqu" path="res://Player/player.tscn" id="1_iooef"]
 [ext_resource type="PackedScene" uid="uid://dgkrpfyapxya1" path="res://UI/BuffsTab/buffs_tab.tscn" id="4_7kfyx"]
+[ext_resource type="PackedScene" uid="uid://1uespg6c3vnu" path="res://UI/AttributeTab/attributes_tab.tscn" id="4_082cq"]
 [ext_resource type="PackedScene" uid="uid://cjtvqtoe8hlsl" path="res://Items/ItemPickup/item_pickup.tscn" id="5_n7l26"]
 [ext_resource type="Resource" uid="uid://b8tq6ut8630ms" path="res://Items/damage.tres" id="6_5xevu"]
 [ext_resource type="Resource" uid="uid://cbsojg3tvsv7q" path="res://Items/speed.tres" id="7_75k0q"]
 [ext_resource type="PackedScene" uid="uid://bugf5ab3tjdro" path="res://UI/Shop/shop.tscn" id="8_16aeq"]
-[ext_resource type="PackedScene" uid="uid://cj7l0bu464kl1" path="res://Utilities/enemy_spawner.tscn" id="9_fy3u6"]
 
 [node name="Game" type="Node2D"]
 position = Vector2(2, 0)
 script = ExtResource("1_1s6e0")
-
-[node name="EnemySpawner" parent="." instance=ExtResource("9_fy3u6")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -20
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.698039, 0.45098, 0.301961, 1)
-
-[node name="Player" parent="." groups=["player"] instance=ExtResource("1_iooef")]
-position = Vector2(506, 365)
-
-[node name="BuffsTab" parent="." instance=ExtResource("4_7kfyx")]
 
 [node name="ItemPickup" parent="." instance=ExtResource("5_n7l26")]
 position = Vector2(419, 539)
@@ -40,4 +24,18 @@ item_data = ExtResource("7_75k0q")
 position = Vector2(238, 339)
 item_data = ExtResource("7_75k0q")
 
-[node name="Shop" parent="." instance=ExtResource("8_16aeq")]
+[node name="UI" type="Node" parent="."]
+
+[node name="BuffsTab" parent="UI" instance=ExtResource("4_7kfyx")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+layer = -20
+
+[node name="ColorRect" type="ColorRect" parent="UI/CanvasLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.698039, 0.45098, 0.301961, 1)
+
+[node name="AttributesTab" parent="UI" instance=ExtResource("4_082cq")]
+
+[node name="Shop" parent="UI" instance=ExtResource("8_16aeq")]

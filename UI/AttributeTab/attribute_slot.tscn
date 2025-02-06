@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dflwy0xr1nkdb"]
+
+[ext_resource type="Script" path="res://UI/AttributeTab/attribute_slot.gd" id="1_hbusv"]
+
+[node name="AttributeSlot" type="Panel"]
+script = ExtResource("1_hbusv")
+
+[node name="Icon" type="TextureRect" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 2.0
+offset_right = 40.0
+offset_bottom = 25.0
+text = "5
+"

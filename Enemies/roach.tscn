@@ -1,27 +1,26 @@
 [gd_scene load_steps=6 format=3 uid="uid://cjvtgh41a6xj1"]
 
-[ext_resource type="Script" path="res://Enemies/Scripts/enemy1.gd" id="1_ajl30"]
-[ext_resource type="Resource" uid="uid://b3hasqdxbn6dy" path="res://Enemies/Resources/enemy1.tres" id="2_ojvdq"]
-[ext_resource type="Texture2D" uid="uid://dsi73hg51us01" path="res://Assets/Art/Shadow.png" id="2_p5jrm"]
-[ext_resource type="Texture2D" uid="uid://u01mxu5o2kph" path="res://Assets/Art/ghost.png" id="3_y8xq4"]
+[ext_resource type="Script" path="res://Enemies/Scripts/roach.gd" id="1_ip52h"]
+[ext_resource type="Resource" uid="uid://b3hasqdxbn6dy" path="res://Enemies/Resources/roach.tres" id="2_rr27x"]
+[ext_resource type="Texture2D" uid="uid://dsi73hg51us01" path="res://Assets/Art/Shadow.png" id="3_tg5bb"]
+[ext_resource type="Texture2D" uid="uid://u01mxu5o2kph" path="res://Assets/Art/ghost.png" id="4_tr20w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8t7a"]
 radius = 7.35294
 
-[node name="Enemy1" type="CharacterBody2D"]
+[node name="Roach" type="CharacterBody2D"]
 collision_layer = 3
 motion_mode = 1
-script = ExtResource("1_ajl30")
-data = ExtResource("2_ojvdq")
+script = ExtResource("1_ip52h")
+data = ExtResource("2_rr27x")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.215686)
 position = Vector2(0, 20)
-texture = ExtResource("2_p5jrm")
+texture = ExtResource("3_tg5bb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.01, 0.01)
-texture = ExtResource("3_y8xq4")
+texture = ExtResource("4_tr20w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.42109e-14, -1.42109e-14)

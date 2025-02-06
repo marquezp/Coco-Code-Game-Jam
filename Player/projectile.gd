@@ -1,8 +1,7 @@
-class_name Projectile
-extends Area2D
+class_name Projectile extends Area2D
 
 @onready var timer: Timer = $Timer
-@onready var speed: float = 1000.0
+@onready var speed: float : set = _set_speed
 @onready var damage: float : set = _set_damage
 
 func _ready() -> void:
@@ -19,6 +18,9 @@ func _physics_process(delta: float) -> void:
 	
 func _set_damage(value: float):
 	damage = value
+
+func _set_speed(value: float):
+	speed = value
 	
 func on_body_entered(body):
 	queue_free()

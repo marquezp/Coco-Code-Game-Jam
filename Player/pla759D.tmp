@@ -28,14 +28,15 @@ scale = Vector2(0.5, 0.5)
 collision_layer = 4
 motion_mode = 1
 script = ExtResource("1_u0c6k")
+base_damage = null
+base_damage_taken = null
+base_speed = null
+base_health_regen = null
+base_health = null
+blood = null
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_cu40j")
-
-[node name="Pivot" type="Marker2D" parent="PlayerSprite"]
-
-[node name="FiringPoint" type="Marker2D" parent="PlayerSprite/Pivot"]
-position = Vector2(94, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 2)
@@ -71,5 +72,3 @@ offset_right = -2.0
 offset_bottom = -113.0
 
 [node name="BleedTimer" type="Timer" parent="."]
-wait_time = 1.5
-autostart = true

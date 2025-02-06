@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://1uespg6c3vnu"]
+
+[ext_resource type="PackedScene" uid="uid://dflwy0xr1nkdb" path="res://UI/AttributeTab/attribute_slot.tscn" id="1_167ym"]
+[ext_resource type="Texture2D" uid="uid://blvbdo8rwdvqh" path="res://Assets/Art/Icons.png" id="2_nvcit"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54uhd"]
+atlas = ExtResource("2_nvcit")
+region = Rect2(35, 3, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6xxr"]
+atlas = ExtResource("2_nvcit")
+region = Rect2(4, 36, 23, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afhqx"]
+atlas = ExtResource("2_nvcit")
+region = Rect2(419, 100, 25, 25)
+
+[node name="AttributesTab" type="CanvasLayer"]
+
+[node name="HBoxContainer" type="GridContainer" parent="."]
+offset_left = 10.0
+offset_top = 247.0
+offset_right = 152.0
+offset_bottom = 327.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 40
+
+[node name="Damage" parent="HBoxContainer" instance=ExtResource("1_167ym")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_54uhd")
+icon_name = "Damage"
+
+[node name="Health" parent="HBoxContainer" instance=ExtResource("1_167ym")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_r6xxr")
+icon_name = "Health"
+
+[node name="Speed" parent="HBoxContainer" instance=ExtResource("1_167ym")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_afhqx")
+icon_name = "Speed"

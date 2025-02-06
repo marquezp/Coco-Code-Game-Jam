@@ -1,7 +1,10 @@
 extends Node2D
 
 # ADD ALL ENEMY PRELOADS HERE
-const ENEMY1 = preload("res://Enemies/enemy1.tscn")
+const ROACH = preload("res://Enemies/roach.tscn")
+const RAT = preload("res://Enemies/rat.tscn")
+const BANDIT = preload("res://Enemies/bandit.tscn")
+const BOSS = preload("res://Enemies/boss.tscn")
 
 var time: int = 0
 var timer: Timer
@@ -24,13 +27,21 @@ func spawn():
 		# Checks all possible enemies
 		match enemy_num:
 			1:
-				enemy = ENEMY1
+				enemy = ROACH
+			2:
+				enemy = RAT
+				print("RAT")
+			3:
+				enemy = BANDIT
+				print("BANDIT")
+			4:
+				enemy = BOSS
+				print("BOSS")
 		if enemy:
 			# Adds as many enemies as spawn_num wants
 			for i in range(spawn_info.spawn_num):
-				var enemy_spawn: BaseEnemy = enemy.instantiate()
+				var enemy_spawn = enemy.instantiate()
 				enemy_spawn.global_position = get_random_position()
-				enemy_spawn.load_drops()
 				add_child(enemy_spawn)
 	else:
 		timer.timeout.disconnect(spawn)

@@ -7,4 +7,4 @@ script = ExtResource("1_lboml")
 total_time = 1
 spawn_delay = 1
 spawn_num = 1
-enemy_list = Array[int]([1])
+enemy_list = Array[int]([4])

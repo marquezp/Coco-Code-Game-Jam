@@ -5,7 +5,7 @@ const DAMAGE = preload("res://Items/damage.tres")
 const SPEED = preload("res://Items/speed.tres")
 const BLOOD = preload("res://Items/blood.tres")
 
-@onready var shop: CanvasLayer = get_node("/root/Game/Shop")
+var shop: CanvasLayer 
 
 const SHOPKEEPER = preload("res://World/shopkeeper.tscn")
 signal update_shop_ui
@@ -14,6 +14,9 @@ signal despawn_shop
 const POSSIBLE_ITEMS : Array[ItemData] = [DAMAGE,SPEED,BLOOD]
 var SHOP_ITEMS_RESOURCE = preload("res://UI/Shop/shop_items.tres")
 
+func get_shop(shop_instance: CanvasLayer):
+	shop = shop_instance
+	
 func spawn_shop():
 	# Call this after wave end
 	var shopkeeper = SHOPKEEPER.instantiate()
