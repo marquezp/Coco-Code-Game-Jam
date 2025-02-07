@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="1_o6tck"]
 [ext_resource type="Script" path="res://Items/ItemEffects/item_effect.gd" id="1_rrn1g"]
 [ext_resource type="Script" path="res://Items/ItemEffects/item_effect_speed.gd" id="2_1f5ut"]
-[ext_resource type="Texture2D" uid="uid://dp7ti05p8hyxr" path="res://Assets/Art/firework.png" id="4_u8ejx"]
 
 [sub_resource type="Resource" id="Resource_xg5c8"]
 script = ExtResource("2_1f5ut")
@@ -11,10 +10,13 @@ regen_amount = -0.2
 speed_amount = 50.0
 description = ""
 
+[sub_resource type="Resource" id="Resource_00xj4"]
+metadata/__load_path__ = "res://Assets/Art/firework.png"
+
 [resource]
 script = ExtResource("1_o6tck")
 name = "Venemous Rush"
 description = "Increases player movement speed but slowly drains health"
 shop_cost = 10
-texture = ExtResource("4_u8ejx")
+texture = SubResource("Resource_00xj4")
 effects = Array[ExtResource("1_rrn1g")]([SubResource("Resource_xg5c8")])
