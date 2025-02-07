@@ -33,11 +33,12 @@ transform = Transform2D(1.1, 0, 0, 1.1, 0, 0)
 
 [node name="HBoxContainer" type="GridContainer" parent="."]
 offset_left = 12.7273
-offset_top = 189.091
+offset_top = 11.8182
 offset_right = 154.727
-offset_bottom = 389.091
+offset_bottom = 211.818
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 40
+metadata/_edit_use_anchors_ = true
 
 [node name="Damage" parent="HBoxContainer" instance=ExtResource("1_167ym")]
 layout_mode = 2

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/roach.gd" id="1_ip52h"]
 [ext_resource type="Resource" uid="uid://b3hasqdxbn6dy" path="res://Enemies/Resources/roach.tres" id="2_rr27x"]
 [ext_resource type="Texture2D" uid="uid://dsi73hg51us01" path="res://Assets/Art/Shadow.png" id="3_tg5bb"]
-[ext_resource type="Texture2D" uid="uid://u01mxu5o2kph" path="res://Assets/Art/ghost.png" id="4_tr20w"]
+[ext_resource type="Texture2D" uid="uid://bwteuts1o530e" path="res://Assets/Art/cockroachSpritesheet.png" id="4_g5ssr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8t7a"]
 radius = 7.35294
@@ -34,10 +34,22 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shadow:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.215686)]
+}
 
 [sub_resource type="Animation" id="Animation_3vceq"]
 resource_name = "die"
-length = 0.5
+length = 0.4
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -46,10 +58,22 @@ tracks/0/path = NodePath("Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shadow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.215686), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_vfo58"]
@@ -85,11 +109,15 @@ data = ExtResource("2_rr27x")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.215686)
-position = Vector2(0, 20)
+position = Vector2(1, 11)
+scale = Vector2(1.24, 0.525424)
 texture = ExtResource("3_tg5bb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("4_tr20w")
+scale = Vector2(0.399999, 0.399999)
+texture = ExtResource("4_g5ssr")
+hframes = 2
+region_rect = Rect2(100, 0, 100, 58)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.42109e-14, -1.42109e-14)

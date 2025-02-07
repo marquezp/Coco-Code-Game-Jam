@@ -8,5 +8,5 @@ func _ready():
 	burn_timer.timeout.connect(apply_burn)
 	
 func special_attack():
-	if randf() < 0.5:
-		data.speed += 200
+	if randf() < 0.3:
+		data.speed += 50
