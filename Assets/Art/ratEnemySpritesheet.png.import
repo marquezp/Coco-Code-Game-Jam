@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mu7k3sr0rrgo"
-path="res://.godot/imported/ratEnemyWalk1.png-fd86253b1c08cd5a8278ef4a9ea1df6d.ctex"
+uid="uid://c2f4w3yk8ydhb"
+path="res://.godot/imported/ratEnemySpritesheet.png-3b01896dfd60f93484f8537e81fd78a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/ratEnemyWalk1.png"
-dest_files=["res://.godot/imported/ratEnemyWalk1.png-fd86253b1c08cd5a8278ef4a9ea1df6d.ctex"]
+source_file="res://Assets/Art/ratEnemySpritesheet.png"
+dest_files=["res://.godot/imported/ratEnemySpritesheet.png-3b01896dfd60f93484f8537e81fd78a7.ctex"]
 
 [params]
 
