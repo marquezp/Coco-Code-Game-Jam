@@ -1,7 +1,15 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://d3dct87m0ue4r"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://d3dct87m0ue4r"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/drop_data.gd" id="1_4u8h7"]
 [ext_resource type="Script" path="res://Enemies/Scripts/enemy_data.gd" id="2_qonll"]
+[ext_resource type="Resource" uid="uid://ceekrffrnnhq5" path="res://Items/health.tres" id="2_rxtr7"]
+
+[sub_resource type="Resource" id="Resource_ytxa4"]
+script = ExtResource("1_4u8h7")
+item = ExtResource("2_rxtr7")
+probability = 100.0
+min_amount = 1
+max_amount = 1
 
 [resource]
 script = ExtResource("2_qonll")
@@ -9,4 +17,4 @@ health = 10.0
 damage = 3.0
 projectile_damage = 0.7
 speed = 100.0
-drops = Array[ExtResource("1_4u8h7")]([null])
+drops = Array[ExtResource("1_4u8h7")]([SubResource("Resource_ytxa4")])

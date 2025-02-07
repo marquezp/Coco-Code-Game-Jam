@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://dcs2owi45eyha"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://dcs2owi45eyha"]
 
 [ext_resource type="Script" path="res://Items/ItemEffects/item_effect.gd" id="1_hwhso"]
 [ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="2_78cl3"]
 [ext_resource type="Script" path="res://Items/ItemEffects/item_effect_armor.gd" id="2_wwi56"]
+[ext_resource type="Texture2D" uid="uid://blvbdo8rwdvqh" path="res://Assets/Art/Icons.png" id="3_y8kb5"]
 
 [sub_resource type="Resource" id="Resource_nrgl1"]
 script = ExtResource("2_wwi56")
@@ -10,7 +11,8 @@ armor_amount = 1.0
 speed_amount = -50.0
 description = ""
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_550en"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8ltc"]
+atlas = ExtResource("3_y8kb5")
 region = Rect2(37, 291, 22, 26)
 
 [resource]
@@ -18,5 +20,5 @@ script = ExtResource("2_78cl3")
 name = "Corrosive Film"
 description = "Decreases damage taken from enemies but slows you down"
 shop_cost = 10
-texture = SubResource("AtlasTexture_550en")
+texture = SubResource("AtlasTexture_c8ltc")
 effects = Array[ExtResource("1_hwhso")]([SubResource("Resource_nrgl1")])

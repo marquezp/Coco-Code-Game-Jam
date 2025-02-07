@@ -4,7 +4,6 @@ const BOSS_PROJECTILE = preload("res://Enemies/boss_projectile.tscn")
 @onready var special_attack_timer: Timer = $SpecialAttackTimer
 @onready var firing_point: Marker2D = $Sprite2D/Pivot/FiringPoint
 @onready var pivot: Marker2D = $Sprite2D/Pivot
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 const POISON = preload("res://Assets/Art/poison.png")
 
 func _ready():
@@ -27,7 +26,7 @@ func special_attack():
 		print("jump")
 		var tween = get_tree().create_tween()
 		tween.tween_property(self,"position",PlayerManager.player.global_position,0.5)
-		animation_player.play("jump")
+		#animation_player.play("jump")
 		
 		
 		

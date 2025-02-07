@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://b8tq6ut8630ms"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://b8tq6ut8630ms"]
 
 [ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="1_c2loi"]
 [ext_resource type="Script" path="res://Items/ItemEffects/item_effect.gd" id="1_d0u75"]
 [ext_resource type="Script" path="res://Items/ItemEffects/item_effect_damage.gd" id="2_f3mjn"]
+[ext_resource type="Texture2D" uid="uid://blvbdo8rwdvqh" path="res://Assets/Art/Icons.png" id="4_otnat"]
 
 [sub_resource type="Resource" id="Resource_dhjx1"]
 script = ExtResource("2_f3mjn")
@@ -10,13 +11,14 @@ damage_amount = null
 damage_taken_amount = 2.0
 description = null
 
-[sub_resource type="Resource" id="Resource_2fpgu"]
-metadata/__load_path__ = "res://Assets/Art/carrot.png"
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8ejm"]
+atlas = ExtResource("4_otnat")
+region = Rect2(5, 291, 22, 26)
 
 [resource]
 script = ExtResource("1_c2loi")
 name = "Berserker's Brew"
 description = "Deal more damage but also take more damage"
 shop_cost = 5
-texture = SubResource("Resource_2fpgu")
+texture = SubResource("AtlasTexture_f8ejm")
 effects = Array[ExtResource("1_d0u75")]([SubResource("Resource_dhjx1")])

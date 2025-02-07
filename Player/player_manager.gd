@@ -29,13 +29,16 @@ func update_blood(blood_amount: int) -> void:
 	player.blood += blood_amount
 	print("Blood: ", player.blood)
 
+func update_health(health_amount: float) -> void:
+	player.health = clamp(player.health,player.health + health_amount, 101)
+	
 func update_health_regen(regen_change: float)-> void:
 	player.health_regen += regen_change
 	print("Health Regen: ", player.health_regen)
 
 func scale_damage(value: float):
 	player.damage *= value
-	
+
 func update_damage(damage_change: float) -> void:
 	player.damage += damage_change
 	print("Damage: ", player.damage)
@@ -58,11 +61,11 @@ func update_burn(burn_change: float):
 	print("Burn Damage: ", player.burn)
 	
 func add_buffs(item_data) -> bool:
-	if item_data.name == "Blood": # Treating this differently than other items
+	# Use the item's effect
+	item_data.use()
+	if item_data.name in ["Blood","Health"]: # Put non poisons here
 		return true
 	if BUFFS_TAB_DATA.add_item(item_data):
-		# Use the item's effect
-		item_data.use()
 		update_buff_ui.emit()
 		return true
 	return false

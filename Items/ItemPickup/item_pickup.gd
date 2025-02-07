@@ -28,7 +28,7 @@ func _on_body_entered(body) -> void:
 				
 func item_picked_up() -> void:
 	var sound_effect: AudioStreamPlayer2D = blood_pickup_sound
-	if item_data.name != "Blood":
+	if item_data.name not in ["Blood","Health"]:
 		sound_effect = item_pickup_sound
 	area_2d.body_entered.disconnect(_on_body_entered)
 	sound_effect.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://uo6h5t0e8yji"]
+[gd_scene load_steps=8 format=3 uid="uid://uo6h5t0e8yji"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/rat.gd" id="1_1egu5"]
 [ext_resource type="Resource" uid="uid://ig43c8phcm8p" path="res://Enemies/Resources/rat.tres" id="2_dvne7"]
@@ -11,6 +11,8 @@ region = Rect2(99, 34, 35, 30)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i4dn3"]
 radius = 7.35294
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sweix"]
 
 [node name="Rat" type="CharacterBody2D"]
 collision_layer = 3
@@ -42,3 +44,8 @@ shape = SubResource("CircleShape2D_i4dn3")
 [node name="BurnTimer" type="Timer" parent="."]
 wait_time = 1.5
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sweix")
+}
