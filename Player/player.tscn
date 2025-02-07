@@ -35,7 +35,7 @@ texture = ExtResource("2_cu40j")
 [node name="Pivot" type="Marker2D" parent="PlayerSprite"]
 
 [node name="FiringPoint" type="Marker2D" parent="PlayerSprite/Pivot"]
-position = Vector2(94, 0)
+position = Vector2(100, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 2)
@@ -73,3 +73,9 @@ offset_bottom = -113.0
 [node name="BleedTimer" type="Timer" parent="."]
 wait_time = 1.5
 autostart = true
+
+[node name="SlowTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true

@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://d3dct87m0ue4r"]
 
-[ext_resource type="Script" path="res://Enemies/Scripts/drop_data.gd" id="1_bslqq"]
-[ext_resource type="Script" path="res://Enemies/Scripts/enemy_data.gd" id="2_pqyou"]
+[ext_resource type="Script" path="res://Enemies/Scripts/drop_data.gd" id="1_4u8h7"]
+[ext_resource type="Script" path="res://Enemies/Scripts/enemy_data.gd" id="2_qonll"]
 
 [resource]
-script = ExtResource("2_pqyou")
+script = ExtResource("2_qonll")
 health = 10.0
 damage = 3.0
+projectile_damage = 0.7
 speed = 100.0
-drops = Array[ExtResource("1_bslqq")]([null])
+drops = Array[ExtResource("1_4u8h7")]([null])

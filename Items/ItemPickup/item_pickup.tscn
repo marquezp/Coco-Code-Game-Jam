@@ -57,10 +57,12 @@ shape = SubResource("CircleShape2D_oqu80")
 [node name="BloodPickupSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_jme1b")
 volume_db = -20.0
+bus = &"sfx"
 
 [node name="ItemPickupSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_pa04i")
 volume_db = -20.0
+bus = &"sfx"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

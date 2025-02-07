@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://bthc5k7hgx2qo"]
+
+[ext_resource type="Script" path="res://UI/player_death.gd" id="1_62urb"]
+
+[node name="PlayerDeath" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_62urb")
+
+[node name="DeathText" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -139.0
+offset_right = 107.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Was that your best effort?..."
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+
+[node name="WaveNumber" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -242.0
+offset_right = 86.0
+offset_bottom = -219.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Waves Completed: 0/5"

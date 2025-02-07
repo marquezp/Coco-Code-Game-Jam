@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8v2qlln4vn2o"]
+[gd_scene load_steps=4 format=3 uid="uid://b8v2qlln4vn2o"]
 
 [ext_resource type="Texture2D" uid="uid://c2jjyd37t0aic" path="res://Assets/Art/MainMenu.png" id="1_407fy"]
 [ext_resource type="Script" path="res://UI/main_menu.gd" id="1_gwe75"]
+[ext_resource type="PackedScene" uid="uid://chym5vx86cvjf" path="res://UI/audio_settings.tscn" id="3_1r788"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -29,7 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="Options" type="VBoxContainer" parent="MarginContainer"]
 modulate = Color(0.556863, 1, 1, 1)
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -37,16 +38,38 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="MarginContainer/Options"]
 layout_mode = 2
 text = "Play
 "
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Audio" type="Button" parent="MarginContainer/Options"]
 layout_mode = 2
 text = "Audio
 "
 
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Exit" type="Button" parent="MarginContainer/Options"]
 layout_mode = 2
 text = "Quit"
+
+[node name="AudioSettings" parent="." instance=ExtResource("3_1r788")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 518.0
+offset_top = 220.0
+offset_right = 518.0
+offset_bottom = 220.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="BackButton" type="Button" parent="AudioSettings"]
+modulate = Color(0.556863, 1, 1, 1)
+layout_mode = 0
+offset_left = 32.0
+offset_top = 228.0
+offset_right = 77.0
+offset_bottom = 259.0
+text = "Back"

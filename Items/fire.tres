@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://deejcgw8i3tlv"]
+
+[ext_resource type="Script" path="res://Items/ItemEffects/item_effect.gd" id="1_a2hpp"]
+[ext_resource type="Script" path="res://Items/ItemEffects/item_effect_fire.gd" id="2_neucv"]
+[ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="2_sgmmn"]
+[ext_resource type="Texture2D" uid="uid://blvbdo8rwdvqh" path="res://Assets/Art/Icons.png" id="3_0vu3f"]
+
+[sub_resource type="Resource" id="Resource_bjk2d"]
+script = ExtResource("2_neucv")
+burn_damage = 2.0
+description = ""
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4ggm"]
+atlas = ExtResource("3_0vu3f")
+region = Rect2(101, 291, 22, 26)
+
+[resource]
+script = ExtResource("2_sgmmn")
+name = "Unstable Flame"
+description = "Enemies take burn damage over time but you have a chance to burn yourself when you fire"
+shop_cost = 10
+texture = SubResource("AtlasTexture_d4ggm")
+effects = Array[ExtResource("1_a2hpp")]([SubResource("Resource_bjk2d")])

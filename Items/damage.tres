@@ -7,13 +7,13 @@
 
 [sub_resource type="Resource" id="Resource_dhjx1"]
 script = ExtResource("2_f3mjn")
-damage_amount = 2.0
-description = ""
+damage_amount = null
+description = null
 
 [resource]
 script = ExtResource("1_c2loi")
-name = "Damage"
-description = "Increases projectile damage"
+name = "Berserker's Brew"
+description = "Deal more damage but also take more damage"
 shop_cost = 5
 texture = ExtResource("4_fbs16")
 effects = Array[ExtResource("1_d0u75")]([SubResource("Resource_dhjx1")])

@@ -20,6 +20,7 @@ scale = Vector2(6.64, 6.64)
 shape = SubResource("CircleShape2D_q41gm")
 
 [node name="InteractRadius" type="Area2D" parent="."]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRadius"]
 scale = Vector2(12.72, 12.72)

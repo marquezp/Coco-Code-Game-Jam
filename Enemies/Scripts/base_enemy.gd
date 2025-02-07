@@ -8,12 +8,30 @@ const PLAYER_SPRITE_SIZE = 50
 
 @onready var hitbox: Area2D = $Hitbox
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var burn_timer: Timer = $BurnTimer
 @onready var health = data.health
 @onready var speed = data.speed
 @onready var drops = data.drops.duplicate()
 
 
-func _physics_process(delta: float) -> void:
+var is_burning: bool = false
+var times_burnt: int = 0
+
+func _ready():
+	burn_timer.timeout.connect(apply_burn)
+	
+func apply_burn():
+	if is_burning:
+		if times_burnt <= 2:
+			print(PlayerManager.get_burn_damage())
+			take_damage(PlayerManager.get_burn_damage())
+			print("I'm burning!")
+			times_burnt += 1
+		else:
+			times_burnt = 0
+			is_burning = false
+	
+func _physics_process(_delta: float) -> void:
 	var direction = global_position.direction_to(PlayerManager.player.global_position)
 	if is_touching_player():
 		velocity = Vector2(0,0)
@@ -34,9 +52,11 @@ func is_touching_player() -> bool:
 			return true
 	return false
 	
-func take_damage(damage) -> void:
+func take_damage(damage, burn: bool = false) -> void:
 	health -= damage
-	print(damage)
+	if burn and !is_burning:
+		is_burning = true
+		burn_timer.start()
 	if health <= 0.0:
 		die()
 

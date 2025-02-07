@@ -13,8 +13,11 @@ func _process(delta: float) -> void:
 	var overlapping_bodies: Array[Node2D] = interact_radius.get_overlapping_bodies()
 	if interact_radius.visible:
 		if Input.is_action_just_pressed("interact"):
-			ShopManager.open_shop()
-			interact_radius.visible = false
+			for body in overlapping_bodies:
+				print(body)
+				if body.name == "Player":
+					ShopManager.open_shop()
+					interact_radius.visible = false
 
 		
 	

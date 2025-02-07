@@ -6,8 +6,10 @@
 script = ExtResource("1_hbusv")
 
 [node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 30.0
 offset_top = 2.0
 offset_right = 40.0
