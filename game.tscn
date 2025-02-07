@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxget0hnnjws2"]
+[gd_scene load_steps=10 format=3 uid="uid://cxget0hnnjws2"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_1s6e0"]
 [ext_resource type="PackedScene" uid="uid://dgkrpfyapxya1" path="res://UI/BuffsTab/buffs_tab.tscn" id="4_7kfyx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://cbsojg3tvsv7q" path="res://Items/speed.tres" id="7_75k0q"]
 [ext_resource type="PackedScene" uid="uid://bugf5ab3tjdro" path="res://UI/Shop/shop.tscn" id="8_16aeq"]
 [ext_resource type="PackedScene" uid="uid://bthc5k7hgx2qo" path="res://UI/player_death.tscn" id="8_gr44q"]
+[ext_resource type="PackedScene" uid="uid://brl6cblhoy7du" path="res://UI/blood_ui.tscn" id="9_ekuh6"]
 
 [node name="Game" type="Node2D"]
 position = Vector2(2, 0)
@@ -27,6 +28,8 @@ item_data = ExtResource("7_75k0q")
 
 [node name="UI" type="Node" parent="."]
 
+[node name="Shop" parent="UI" instance=ExtResource("8_16aeq")]
+
 [node name="BuffsTab" parent="UI" instance=ExtResource("4_7kfyx")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="UI"]
@@ -39,6 +42,6 @@ color = Color(0.698039, 0.45098, 0.301961, 1)
 
 [node name="AttributesTab" parent="UI" instance=ExtResource("4_082cq")]
 
-[node name="Shop" parent="UI" instance=ExtResource("8_16aeq")]
-
 [node name="PlayerDeath" parent="UI" instance=ExtResource("8_gr44q")]
+
+[node name="BloodUI" parent="UI" instance=ExtResource("9_ekuh6")]

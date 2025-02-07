@@ -7,7 +7,7 @@ const PROJECTILE = preload("res://Player/projectile.tscn")
 @export var base_damage_taken: float = 10.0
 @export var base_speed: float = 300.0
 @export var base_health_regen: float = 0.2
-@export var base_health: float = 100.0
+@export var base_max_health: float = 100.0
 @export var base_burn: float = 0.0
 @export var base_attack_speed: float = 0.6
 
@@ -19,13 +19,13 @@ const PROJECTILE = preload("res://Player/projectile.tscn")
 @onready var damage_taken: float = base_damage_taken
 @onready var speed: float = base_speed
 @onready var health_regen: float = base_health_regen
-@onready var health: float = base_health
+@onready var max_health: float = base_max_health
+@onready var health: float = base_max_health
 @onready var burn: float = base_burn
 @onready var attack_speed : float = base_attack_speed
 
 # Blood (currency for shop)
 @export var blood : int = 50
-@onready var blood_label: Label = $BloodLabel
 
 # Timers, etc
 @onready var attack_timer: Timer = $AttackTimer
@@ -62,6 +62,10 @@ func apply_bleed():
 # returns speed back to normal after slow timer ends
 func remove_slow():
 	speed = pre_slow_speed
+
+func max_health_changed():
+	health = min(health, max_health)
+	%Healthbar.max_value = max_health
 	
 func _physics_process(delta: float) -> void:
 	if input_allowed:
@@ -94,7 +98,6 @@ func _physics_process(delta: float) -> void:
 		
 	# Update health and currency
 	%Healthbar.value = health
-	blood_label.text = "Blood: " + str(blood)
 	
 	if health <= 0:
 		PlayerManager.health_depleted.emit()

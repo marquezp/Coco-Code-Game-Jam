@@ -6,7 +6,7 @@ const PLAYER_SPRITE_SIZE = 50
 
 @export var data: EnemyData
 
-#@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hitbox: Area2D = $Hitbox
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var burn_timer: Timer = $BurnTimer
@@ -14,7 +14,7 @@ const PLAYER_SPRITE_SIZE = 50
 @onready var speed = data.speed
 @onready var drops = data.drops.duplicate()
 
-
+var is_dead: bool = false
 var is_burning: bool = false
 var times_burnt: int = 0
 
@@ -34,6 +34,8 @@ func apply_burn():
 	
 func _physics_process(_delta: float) -> void:
 	#animation_player.play("walk")
+	if is_dead:
+		return
 	var direction = global_position.direction_to(PlayerManager.player.global_position)
 	if is_touching_player():
 		velocity = Vector2(0,0)
@@ -70,8 +72,11 @@ func load_drops() -> void:
 		
 func die() -> void:
 	# Await animation here...
-	WaveManager.enemies_dead += 1
 	drop_items()
+	is_dead = true
+	animation_player.play("die")
+	await animation_player.animation_finished
+	WaveManager.enemies_dead += 1
 	queue_free()
 	
 func drop_items() -> void:

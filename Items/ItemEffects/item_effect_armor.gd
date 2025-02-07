@@ -1,6 +1,6 @@
 class_name ItemEffectArmor extends ItemEffect
 
-@export var armor_amount : float = 1.0
+@export var armor_amount : float = -2.0
 @export var speed_amount : float = -50
 @export var sound : AudioStream = null
 

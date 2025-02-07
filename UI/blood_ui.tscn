@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://brl6cblhoy7du"]
+
+[ext_resource type="Script" path="res://UI/blood_ui.gd" id="1_jgnnb"]
+[ext_resource type="Texture2D" uid="uid://lc3v13vht84p" path="res://Assets/Art/blood.png" id="2_1ur2l"]
+
+[node name="BloodUI" type="CanvasLayer"]
+script = ExtResource("1_jgnnb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 568.0
+offset_top = 14.0
+offset_right = 608.0
+offset_bottom = 54.0
+texture = ExtResource("2_1ur2l")
+
+[node name="Amount" type="Label" parent="."]
+offset_left = 608.0
+offset_top = 23.0
+offset_right = 648.0
+offset_bottom = 46.0
+text = "5"
+
+[node name="Description" type="Label" parent="."]
+offset_left = 481.0
+offset_top = 56.0
+offset_right = 704.0
+offset_bottom = 105.0
+text = "Monster Blood
+A valuable ingredient"
+horizontal_alignment = 1

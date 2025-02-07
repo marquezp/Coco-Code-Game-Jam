@@ -16,3 +16,10 @@ offset_right = 40.0
 offset_bottom = 25.0
 text = "5
 "
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 2.0
+offset_right = 115.0
+offset_bottom = 25.0

@@ -29,6 +29,10 @@ func update_blood(blood_amount: int) -> void:
 	player.blood += blood_amount
 	print("Blood: ", player.blood)
 
+func update_max_health(new_amount: float) -> void:
+	player.max_health += new_amount
+	player.max_health_changed()
+	
 func update_health(health_amount: float) -> void:
 	player.health = clamp(player.health,player.health + health_amount, 101)
 	
@@ -79,6 +83,9 @@ func remove_buffs() -> void:
 func reset_player_stats() -> void:
 	player.damage = player.base_damage
 	player.burn_on = false
+	player.health = player.base_max_health
+	player.max_health = player.base_max_health
 	player.speed = player.base_speed
 	player.health_regen = player.base_health_regen
 	player.damage_taken = player.base_damage_taken
+	player.max_health_changed()

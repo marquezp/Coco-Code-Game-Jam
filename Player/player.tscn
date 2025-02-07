@@ -55,20 +55,14 @@ debug_color = Color(0.760518, 0.273358, 0.44995, 0.42)
 
 [node name="Healthbar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-offset_left = -114.0
-offset_top = -108.0
-offset_right = 118.0
-offset_bottom = -81.0
+offset_left = -116.0
+offset_top = 76.0
+offset_right = 116.0
+offset_bottom = 103.0
 theme_override_styles/background = SubResource("StyleBoxFlat_3cvls")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xrdkw")
 value = 100.0
 show_percentage = false
-
-[node name="BloodLabel" type="Label" parent="."]
-offset_left = -42.0
-offset_top = -136.0
-offset_right = -2.0
-offset_bottom = -113.0
 
 [node name="BleedTimer" type="Timer" parent="."]
 wait_time = 1.5

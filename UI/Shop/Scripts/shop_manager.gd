@@ -6,6 +6,7 @@ const SPEED = preload("res://Items/speed.tres")
 const ARMOR = preload("res://Items/armor.tres")
 const FIRE = preload("res://Items/fire.tres")
 const ATTSPEED = preload("res://Items/attspeed.tres")
+const REGEN = preload("res://Items/regen.tres")
 
 var shop: CanvasLayer 
 
@@ -13,7 +14,7 @@ const SHOPKEEPER = preload("res://World/shopkeeper.tscn")
 signal update_shop_ui
 signal despawn_shop
 
-const POSSIBLE_ITEMS : Array[ItemData] = [DAMAGE,SPEED,ARMOR,FIRE,ATTSPEED]
+const POSSIBLE_ITEMS : Array[ItemData] = [DAMAGE,SPEED,ARMOR,FIRE,ATTSPEED,REGEN]
 var SHOP_ITEMS_RESOURCE = preload("res://UI/Shop/shop_items.tres")
 
 func get_shop(shop_instance: CanvasLayer):
