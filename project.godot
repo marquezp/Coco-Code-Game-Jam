@@ -20,6 +20,7 @@ config/icon="res://Assets/Art/icon.svg"
 PlayerManager="*res://Player/player_manager.gd"
 ShopManager="*res://UI/Shop/Scripts/shop_manager.gd"
 WaveManager="*res://Utilities/wave_manager.gd"
+DamageNumbers="*res://Utilities/damage_numbers.gd"
 
 [file_customization]
 

@@ -5,6 +5,7 @@ const PICKUP = preload("res://Items/ItemPickup/item_pickup.tscn")
 const PLAYER_SPRITE_SIZE = 50
 
 @export var data: EnemyData
+@export var knockback_power: float = 1000
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hitbox: Area2D = $Hitbox
@@ -13,6 +14,9 @@ const PLAYER_SPRITE_SIZE = 50
 @onready var health = data.health
 @onready var speed = data.speed
 @onready var drops = data.drops.duplicate()
+@onready var damage_numbers_origin: Node2D = $DamageNumbersOrigin
+@onready var hit_flash_animation_player: AnimationPlayer = $HitFlashAnimationPlayer
+
 
 var is_dead: bool = false
 var is_burning: bool = false
@@ -25,7 +29,7 @@ func apply_burn():
 	if is_burning:
 		if times_burnt <= 2:
 			print(PlayerManager.get_burn_damage())
-			take_damage(PlayerManager.get_burn_damage())
+			take_damage(PlayerManager.get_burn_damage(),false,true)
 			print("I'm burning!")
 			times_burnt += 1
 		else:
@@ -55,14 +59,24 @@ func is_touching_player() -> bool:
 		if area.name == "PlayerHurtBox":
 			return true
 	return false
+
+func knock_back():
+	var knockbackDirection = -velocity.normalized() * knockback_power
+	velocity = knockbackDirection
+	move_and_slide()
 	
-func take_damage(damage, burn: bool = false) -> void:
+func take_damage(damage, burn: bool = false, is_burn_damage: bool = false) -> void:
 	health -= damage
+	DamageNumbers.display_number(damage,damage_numbers_origin.global_position,is_burn_damage)
+	if health <= 0.0:
+		die()
+		return
+	knock_back()
+	hit_flash_animation_player.play("hit_flash")
 	if burn and !is_burning:
 		is_burning = true
 		burn_timer.start()
-	if health <= 0.0:
-		die()
+	
 
 func load_drops() -> void:
 	print("Loading drops")

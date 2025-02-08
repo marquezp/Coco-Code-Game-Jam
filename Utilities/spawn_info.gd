@@ -1,7 +1,8 @@
 class_name SpawnInfo extends Resource
 
 
-@export var total_time: int = 60
-@export var spawn_delay: int = 1
-@export var spawn_num : int = 1
+@export var total_time: int
+@export var spawn_delay: int
+@export var spawn_num : int
+@export var total_enemies: int
 @export var enemy_list : Array[int]

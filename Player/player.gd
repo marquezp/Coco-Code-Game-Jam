@@ -12,7 +12,7 @@ const PROJECTILE = preload("res://Player/projectile.tscn")
 @export var base_attack_speed: float = 0.6
 
 # other exports
-@export var self_burn_chance: float = 0.10
+@export var self_burn_chance: float = 0.15
 
 # Current player attributes
 @onready var damage: float = base_damage
@@ -34,7 +34,16 @@ const PROJECTILE = preload("res://Player/projectile.tscn")
 @onready var firing_point: Marker2D = $PlayerSprite/Pivot/FiringPoint
 @onready var pivot: Marker2D = $PlayerSprite/Pivot
 @onready var sprite: Sprite2D = $PlayerSprite
+@onready var damage_numbers_origin: Node2D = $DamageNumbersOrigin
 
+# Sound effects
+@onready var audio_stream_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+const PLAYERHIT_1 = preload("res://Assets/Audio/playerhit1.wav")
+const PLAYERHIT_2 = preload("res://Assets/Audio/playerhit2.wav")
+const PLAYERHIT_3 = preload("res://Assets/Audio/playerhit3.wav")
+const PLAYERHIT_4 = preload("res://Assets/Audio/playerhit4.wav")
+const PLAYERHIT_5 = preload("res://Assets/Audio/playerhit5.wav")
+const sounds: Array[AudioStreamWAV] = [PLAYERHIT_1,PLAYERHIT_2, PLAYERHIT_3, PLAYERHIT_4, PLAYERHIT_5] 
 
 var input_allowed: bool = true
 var is_bleeding: bool = false
@@ -67,7 +76,13 @@ func max_health_changed():
 	health = min(health, max_health)
 	%Healthbar.max_value = max_health
 	
+func make_noise():
+	if !audio_stream_player.playing:
+		audio_stream_player.stream = sounds.pick_random()
+		audio_stream_player.play()
+			
 func _physics_process(delta: float) -> void:
+	sprite.modulate = "#FFF"
 	if input_allowed:
 		var input_vector = Input.get_vector("left", "right", "up", "down")
 		velocity = input_vector.normalized() * speed
@@ -84,6 +99,8 @@ func _physics_process(delta: float) -> void:
 	if overlapping_enemies.size() > 0:
 		for enemy in overlapping_enemies:
 			print(enemy.name)
+			make_noise()
+			sprite.modulate = "#FF3030"
 			health -= damage_taken * enemy.data.damage * delta
 			if enemy.name == "Rat":
 				if !is_bleeding:
@@ -132,3 +149,5 @@ func shoot():
 		if randf() < self_burn_chance: # chance to burn yourself
 			print("burnt myself for ", burn)
 			health -= burn
+			make_noise()
+			DamageNumbers.display_number(burn,damage_numbers_origin.global_position,true)

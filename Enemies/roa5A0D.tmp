@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjvtgh41a6xj1"]
+[gd_scene load_steps=12 format=3 uid="uid://cjvtgh41a6xj1"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/roach.gd" id="1_ip52h"]
 [ext_resource type="Resource" uid="uid://b3hasqdxbn6dy" path="res://Enemies/Resources/roach.tres" id="2_rr27x"]
@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bwteuts1o530e" path="res://Assets/Art/cockroachSpritesheet.png" id="4_g5ssr"]
 [ext_resource type="Shader" uid="uid://3f2b7ln38qpf" path="res://Utilities/hitflash.tres" id="4_ljagw"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_extgf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yiqdp"]
+resource_local_to_scene = true
 shader = ExtResource("4_ljagw")
-shader_parameter/enabled = false
+shader_parameter/enabled = true
 shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8t7a"]
@@ -107,44 +108,6 @@ _data = {
 "walk": SubResource("Animation_vfo58")
 }
 
-[sub_resource type="Animation" id="Animation_5lvk0"]
-resource_name = "hit_flash"
-length = 0.1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_2arsy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bh22u"]
-_data = {
-"RESET": SubResource("Animation_2arsy"),
-"hit_flash": SubResource("Animation_5lvk0")
-}
-
 [node name="Roach" type="CharacterBody2D"]
 collision_layer = 3
 motion_mode = 1
@@ -158,7 +121,7 @@ scale = Vector2(1.24, 0.525424)
 texture = ExtResource("3_tg5bb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_extgf")
+material = SubResource("ShaderMaterial_yiqdp")
 scale = Vector2(0.399999, 0.399999)
 texture = ExtResource("4_g5ssr")
 hframes = 2
@@ -194,8 +157,3 @@ autoplay = "walk"
 
 [node name="DamageNumbersOrigin" type="Node2D" parent="."]
 position = Vector2(0, -21)
-
-[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_bh22u")
-}

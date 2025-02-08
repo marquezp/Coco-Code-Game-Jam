@@ -22,7 +22,7 @@ func get_spawner(spawner: Node2D) -> void:
 func start_next_wave():
 	print("Wave ",current_wave_index)
 	enemy_spawner.begin(current_wave)
-	enemies_to_kill = (current_wave.total_time * current_wave.spawn_num) / current_wave.spawn_delay
+	enemies_to_kill = current_wave.total_enemies
 	print("Enemies this round: ", enemies_to_kill)
 
 func wave_over():

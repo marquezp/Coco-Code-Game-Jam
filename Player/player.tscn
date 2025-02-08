@@ -73,3 +73,9 @@ wait_time = 2.0
 
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -20.0
+
+[node name="DamageNumbersOrigin" type="Node2D" parent="."]
+position = Vector2(0, -84)
