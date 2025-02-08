@@ -1,9 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwewcqn1hnlhe"]
+[gd_scene load_steps=16 format=3 uid="uid://cwewcqn1hnlhe"]
 
 [ext_resource type="Texture2D" uid="uid://dsi73hg51us01" path="res://Assets/Art/Shadow.png" id="1_rncah"]
 [ext_resource type="Script" path="res://Enemies/Scripts/boss.gd" id="1_yok5c"]
 [ext_resource type="Resource" uid="uid://c3u1brege3qck" path="res://Enemies/Resources/boss.tres" id="2_tpjvr"]
-[ext_resource type="Texture2D" uid="uid://cs0s2jy5yief4" path="res://Assets/Art/ghoulBossSpritesheet.png" id="4_alifu"]
+[ext_resource type="Texture2D" uid="uid://b602bamacyvb3" path="res://Assets/Art/ghoulBossSpritesheet.png" id="4_alifu"]
+[ext_resource type="Shader" uid="uid://3f2b7ln38qpf" path="res://Utilities/hitflash.tres" id="4_b0j36"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2nw7w"]
+resource_local_to_scene = true
+shader = ExtResource("4_b0j36")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6eegl"]
 radius = 7.35294
@@ -21,6 +28,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_bhf2y"]
@@ -40,10 +59,85 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, -40), Vector2(0, -80), Vector2(0, -40), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_k7eua"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_7r5qv"]
+resource_name = "throw"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 1,
+"values": [3, 2]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_88swf"]
 _data = {
 "RESET": SubResource("Animation_qtw55"),
-"jump": SubResource("Animation_bhf2y")
+"jump": SubResource("Animation_bhf2y"),
+"throw": SubResource("Animation_7r5qv"),
+"walk": SubResource("Animation_k7eua")
+}
+
+[sub_resource type="Animation" id="Animation_ocwqt"]
+resource_name = "hit_flash"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_i8016"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ximpm"]
+_data = {
+"RESET": SubResource("Animation_i8016"),
+"hit_flash": SubResource("Animation_ocwqt")
 }
 
 [node name="Boss" type="CharacterBody2D"]
@@ -53,26 +147,30 @@ data = ExtResource("2_tpjvr")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.215686)
-position = Vector2(0, 20)
-scale = Vector2(1.21, 1.21)
+position = Vector2(4, 99)
+scale = Vector2(4.01, 4.01)
 texture = ExtResource("1_rncah")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_2nw7w")
 texture = ExtResource("4_alifu")
+hframes = 2
+vframes = 2
 
 [node name="Pivot" type="Marker2D" parent="Sprite2D"]
 position = Vector2(-7, 0)
 
 [node name="FiringPoint" type="Marker2D" parent="Sprite2D/Pivot"]
-position = Vector2(35, 0)
+position = Vector2(133, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.42109e-14, -1.42109e-14)
-scale = Vector2(2.3, 2.3)
+position = Vector2(13, -20)
+scale = Vector2(10.02, 10.02)
 shape = SubResource("CircleShape2D_6eegl")
 
 [node name="Hitbox" type="Area2D" parent="."]
-scale = Vector2(1.69, 1.69)
+position = Vector2(13, -20)
+scale = Vector2(7.25, 7.25)
 collision_layer = 0
 collision_mask = 2
 
@@ -93,3 +191,12 @@ autostart = true
 libraries = {
 "": SubResource("AnimationLibrary_88swf")
 }
+autoplay = "walk"
+
+[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ximpm")
+}
+
+[node name="DamageNumbersOrigin" type="Node2D" parent="."]
+position = Vector2(0, -96)
