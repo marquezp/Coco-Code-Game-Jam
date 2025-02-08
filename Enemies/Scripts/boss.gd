@@ -4,6 +4,7 @@ const BOSS_PROJECTILE = preload("res://Enemies/boss_projectile.tscn")
 @onready var special_attack_timer: Timer = $SpecialAttackTimer
 @onready var firing_point: Marker2D = $Sprite2D/Pivot/FiringPoint
 @onready var pivot: Marker2D = $Sprite2D/Pivot
+
 const POISON = preload("res://Assets/Art/poison.png")
 
 func _ready():
@@ -20,6 +21,7 @@ func special_attack():
 		new_projectile.speed = 600
 		new_projectile.global_position = firing_point.global_position
 		new_projectile.rotation = (position.angle_to_point(PlayerManager.player.global_position))
+		animation_player.play("throw")
 		get_parent().add_child(new_projectile)
 	else:
 		# Jump towards player
