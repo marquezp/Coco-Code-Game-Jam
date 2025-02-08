@@ -28,9 +28,7 @@ func _ready():
 func apply_burn():
 	if is_burning:
 		if times_burnt <= 2:
-			print(PlayerManager.get_burn_damage())
 			take_damage(PlayerManager.get_burn_damage(),false,true)
-			print("I'm burning!")
 			times_burnt += 1
 		else:
 			times_burnt = 0
@@ -79,7 +77,6 @@ func take_damage(damage, burn: bool = false, is_burn_damage: bool = false) -> vo
 	
 
 func load_drops() -> void:
-	print("Loading drops")
 	var new_drop : DropData = DropData.new()
 	new_drop.item = BLOOD
 	drops.append(new_drop)

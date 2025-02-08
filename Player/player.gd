@@ -62,8 +62,9 @@ func _ready():
 func apply_bleed():
 	if is_bleeding:
 		if times_bled <= 2:
+			make_noise()
+			DamageNumbers.display_number(3,damage_numbers_origin.global_position)
 			health -= 3
-			print("I'm bleeding!")
 			times_bled += 1
 		else:
 			times_bled = 0

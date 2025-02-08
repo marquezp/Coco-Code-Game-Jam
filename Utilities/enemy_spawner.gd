@@ -30,13 +30,10 @@ func spawn():
 				enemy = ROACH
 			2:
 				enemy = RAT
-				print("RAT")
 			3:
 				enemy = BANDIT
-				print("BANDIT")
 			4:
 				enemy = BOSS
-				print("BOSS")
 		if enemy:
 			# Adds as many enemies as spawn_num wants
 			for i in range(spawn_info.spawn_num):

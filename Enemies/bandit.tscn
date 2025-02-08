@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://ck3i6vawy5mcq"]
+[gd_scene load_steps=15 format=3 uid="uid://ck3i6vawy5mcq"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/bandit.gd" id="1_jnr30"]
 [ext_resource type="Resource" uid="uid://d3dct87m0ue4r" path="res://Enemies/Resources/bandit.tres" id="2_n2y81"]
 [ext_resource type="Texture2D" uid="uid://dsi73hg51us01" path="res://Assets/Art/Shadow.png" id="3_862ns"]
-[ext_resource type="Texture2D" uid="uid://g3ogjd85kwwf" path="res://Assets/Art/Necromancer_creativekind-Sheet.png" id="4_kcbqx"]
+[ext_resource type="Shader" uid="uid://3f2b7ln38qpf" path="res://Utilities/hitflash.tres" id="4_lnims"]
+[ext_resource type="Texture2D" uid="uid://dlg702i1lgkx4" path="res://Assets/Art/banditEnemySpritesheet.png" id="4_qvr6m"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y3bh8"]
-atlas = ExtResource("4_kcbqx")
-region = Rect2(62, 63, 42, 52)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7v86f"]
+shader = ExtResource("4_lnims")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i4dn3"]
 radius = 7.35294
@@ -81,6 +83,44 @@ _data = {
 "walk": SubResource("Animation_vfo58")
 }
 
+[sub_resource type="Animation" id="Animation_g3x0q"]
+resource_name = "hit_flash"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_m54r6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d7k6m"]
+_data = {
+"RESET": SubResource("Animation_m54r6"),
+"hit_flash": SubResource("Animation_g3x0q")
+}
+
 [node name="Bandit" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_jnr30")
@@ -92,26 +132,31 @@ position = Vector2(-1, 26)
 texture = ExtResource("3_862ns")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_y3bh8")
+material = SubResource("ShaderMaterial_7v86f")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_qvr6m")
+hframes = 2
 
 [node name="Pivot" type="Marker2D" parent="Sprite2D"]
+rotation = -0.00298333
 
-[node name="FiringPoint" type="Marker2D" parent="Sprite2D/Pivot"]
-position = Vector2(18, 0)
+[node name="FiringPoint1" type="Marker2D" parent="Sprite2D/Pivot"]
+position = Vector2(97.4369, 0.0569923)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -1.69407e-21)
-scale = Vector2(1.36, 1.36)
+position = Vector2(1, -8)
+scale = Vector2(3.88, 3.88)
 shape = SubResource("CircleShape2D_i4dn3")
 
 [node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(-1, 0)
+position = Vector2(1, -8)
+scale = Vector2(2.68, 2.68)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(1.42109e-14, -1.42109e-14)
-scale = Vector2(1.8, 1.8)
+scale = Vector2(1.6125, 1.6125)
 shape = SubResource("CircleShape2D_i4dn3")
 
 [node name="SpecialAttackTimer" type="Timer" parent="."]
@@ -127,3 +172,11 @@ libraries = {
 "": SubResource("AnimationLibrary_sweix")
 }
 autoplay = "walk"
+
+[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d7k6m")
+}
+
+[node name="DamageNumbersOrigin" type="Node2D" parent="."]
+position = Vector2(0, -91)

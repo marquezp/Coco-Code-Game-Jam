@@ -4,7 +4,7 @@ extends Node
 const WAVE1 = preload("res://Enemies/Waves/wave1.tres")
 const WAVE2 = preload("res://Enemies/Waves/wave2.tres")
 # Iterate through this array when calling next wave
-const WAVES : Array[SpawnInfo] = [WAVE1,WAVE2,WAVE1,WAVE1,WAVE1,WAVE1,WAVE1]
+const WAVES : Array[SpawnInfo] = [WAVE2,WAVE2]
 
 var enemy_spawner: Node2D
 var current_wave_index: int = 0

@@ -24,7 +24,6 @@ func display_number(value: float, position: Vector2, is_critical: bool = false):
 	number.pivot_offset = Vector2(number.size/2)
 	
 	var tween = get_tree().create_tween()
-	print(tween)
 	tween.set_parallel(true)
 	tween.tween_property(
 		number, "position:y", number.position.y -24, 0.25

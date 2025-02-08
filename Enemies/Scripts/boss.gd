@@ -14,7 +14,6 @@ func _ready():
 func special_attack():
 	# Ranged Attack
 	if randf() < 0.5:
-		print("fire")
 		pivot.look_at((PlayerManager.player.global_position))
 		var new_projectile: BossProjectile = BOSS_PROJECTILE.instantiate()
 		new_projectile.damage = data.projectile_damage
@@ -25,7 +24,6 @@ func special_attack():
 		get_parent().add_child(new_projectile)
 	else:
 		# Jump towards player
-		print("jump")
 		var tween = get_tree().create_tween()
 		tween.tween_property(self,"position",PlayerManager.player.global_position,0.5)
 		#animation_player.play("jump")
