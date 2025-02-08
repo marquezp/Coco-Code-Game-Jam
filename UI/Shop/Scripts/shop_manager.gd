@@ -23,7 +23,7 @@ func get_shop(shop_instance: CanvasLayer):
 func spawn_shop():
 	# Call this after wave end
 	var shopkeeper = SHOPKEEPER.instantiate()
-	shopkeeper.global_position = PlayerManager.player.global_position + Vector2(200,-20)
+	shopkeeper.global_position = PlayerManager.player.global_position + Vector2(150,-20)
 	get_tree().current_scene.call_deferred("add_child",shopkeeper)
 	
 func open_shop():

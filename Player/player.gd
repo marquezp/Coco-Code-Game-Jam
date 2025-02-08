@@ -5,8 +5,8 @@ const PROJECTILE = preload("res://Player/projectile.tscn")
 # Base (starting) Player Attributes
 @export var base_damage: float = 1.0
 @export var base_damage_taken: float = 10.0
-@export var base_speed: float = 300.0
-@export var base_health_regen: float = 0.2
+@export var base_speed: float = 250.0
+@export var base_health_regen: float = 0.0
 @export var base_max_health: float = 100.0
 @export var base_burn: float = 0.0
 @export var base_attack_speed: float = 0.6

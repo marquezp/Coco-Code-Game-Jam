@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://3f2b7ln38qpf" path="res://Utilities/hitflash.tres" id="4_ljagw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_extgf"]
+resource_local_to_scene = true
 shader = ExtResource("4_ljagw")
 shader_parameter/enabled = false
 shader_parameter/tint = Color(1, 1, 1, 1)
@@ -159,17 +160,19 @@ texture = ExtResource("3_tg5bb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_extgf")
-scale = Vector2(0.399999, 0.399999)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("4_g5ssr")
 hframes = 2
 region_rect = Rect2(100, 0, 100, 58)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.42109e-14, -1.42109e-14)
-scale = Vector2(1.36, 1.36)
+position = Vector2(2, 1)
+scale = Vector2(1.68, 1.68)
 shape = SubResource("CircleShape2D_e8t7a")
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(2, 1)
+scale = Vector2(1.24862, 1.24862)
 collision_layer = 0
 collision_mask = 2
 

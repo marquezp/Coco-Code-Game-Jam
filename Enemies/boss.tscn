@@ -1,13 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwewcqn1hnlhe"]
+[gd_scene load_steps=9 format=3 uid="uid://cwewcqn1hnlhe"]
 
 [ext_resource type="Texture2D" uid="uid://dsi73hg51us01" path="res://Assets/Art/Shadow.png" id="1_rncah"]
 [ext_resource type="Script" path="res://Enemies/Scripts/boss.gd" id="1_yok5c"]
 [ext_resource type="Resource" uid="uid://c3u1brege3qck" path="res://Enemies/Resources/boss.tres" id="2_tpjvr"]
-[ext_resource type="Texture2D" uid="uid://dorw3ky5x3w30" path="res://Assets/Art/Minotaur.png" id="4_fb2wt"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q4qkj"]
-atlas = ExtResource("4_fb2wt")
-region = Rect2(28, 23, 52, 41)
+[ext_resource type="Texture2D" uid="uid://cs0s2jy5yief4" path="res://Assets/Art/ghoulBossSpritesheet.png" id="4_alifu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6eegl"]
 radius = 7.35294
@@ -51,7 +47,6 @@ _data = {
 }
 
 [node name="Boss" type="CharacterBody2D"]
-scale = Vector2(4, 4)
 collision_layer = 3
 script = ExtResource("1_yok5c")
 data = ExtResource("2_tpjvr")
@@ -63,7 +58,7 @@ scale = Vector2(1.21, 1.21)
 texture = ExtResource("1_rncah")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_q4qkj")
+texture = ExtResource("4_alifu")
 
 [node name="Pivot" type="Marker2D" parent="Sprite2D"]
 position = Vector2(-7, 0)

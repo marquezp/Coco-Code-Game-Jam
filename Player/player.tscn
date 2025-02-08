@@ -35,7 +35,7 @@ texture = ExtResource("2_cu40j")
 [node name="Pivot" type="Marker2D" parent="PlayerSprite"]
 
 [node name="FiringPoint" type="Marker2D" parent="PlayerSprite/Pivot"]
-position = Vector2(100, 0)
+position = Vector2(114, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 2)

@@ -1,11 +1,8 @@
-[gd_scene load_steps=16 format=4 uid="uid://cxget0hnnjws2"]
+[gd_scene load_steps=13 format=4 uid="uid://cxget0hnnjws2"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_1s6e0"]
 [ext_resource type="PackedScene" uid="uid://dgkrpfyapxya1" path="res://UI/BuffsTab/buffs_tab.tscn" id="4_7kfyx"]
 [ext_resource type="PackedScene" uid="uid://1uespg6c3vnu" path="res://UI/AttributeTab/attributes_tab.tscn" id="4_082cq"]
-[ext_resource type="PackedScene" uid="uid://cjtvqtoe8hlsl" path="res://Items/ItemPickup/item_pickup.tscn" id="5_n7l26"]
-[ext_resource type="Resource" uid="uid://b8tq6ut8630ms" path="res://Items/damage.tres" id="6_5xevu"]
-[ext_resource type="Resource" uid="uid://cbsojg3tvsv7q" path="res://Items/speed.tres" id="7_75k0q"]
 [ext_resource type="PackedScene" uid="uid://bugf5ab3tjdro" path="res://UI/Shop/shop.tscn" id="8_16aeq"]
 [ext_resource type="PackedScene" uid="uid://bthc5k7hgx2qo" path="res://UI/player_death.tscn" id="8_gr44q"]
 [ext_resource type="PackedScene" uid="uid://brl6cblhoy7du" path="res://UI/blood_ui.tscn" id="9_ekuh6"]
@@ -854,18 +851,6 @@ sources/0 = SubResource("TileSetAtlasSource_3317t")
 [node name="Game" type="Node2D"]
 position = Vector2(2, 0)
 script = ExtResource("1_1s6e0")
-
-[node name="ItemPickup" parent="." instance=ExtResource("5_n7l26")]
-position = Vector2(419, 539)
-item_data = ExtResource("6_5xevu")
-
-[node name="ItemPickup2" parent="." instance=ExtResource("5_n7l26")]
-position = Vector2(229, 525)
-item_data = ExtResource("7_75k0q")
-
-[node name="ItemPickup3" parent="." instance=ExtResource("5_n7l26")]
-position = Vector2(238, 339)
-item_data = ExtResource("7_75k0q")
 
 [node name="UI" type="Node" parent="."]
 
