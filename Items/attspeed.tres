@@ -18,7 +18,7 @@ region = Rect2(69, 291, 22, 26)
 [resource]
 script = ExtResource("2_ok5i3")
 name = "Hollow Strike Elixir"
-description = "Increases firing rate at the cost of damage"
+description = "Lowers projectile delay at the cost of projectile damage"
 shop_cost = 10
 texture = SubResource("AtlasTexture_n13cr")
 effects = Array[ExtResource("1_xjn8q")]([SubResource("Resource_hoilj")])

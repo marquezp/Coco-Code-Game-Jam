@@ -1,22 +1,22 @@
 extends Node
 
-func display_number(value: int, position: Vector2, is_critical: bool = false):
+func display_number(value: float, position: Vector2, is_critical: bool = false):
 	var number = Label.new()
 	number.global_position = position
-	number.text = str(value)
+	number.text = str(roundf(value))
 	number.z_index = 5
 	number.label_settings = LabelSettings.new()
-	
+	number.label_settings.font_size = 24
 	var color = "#008F00"
 	if is_critical:
 		color = "#E25822"
+		number.label_settings.font_size = 32
 	if value == 0:
 		color = "#FF8"
 	
 	number.label_settings.font_color = color
-	number.label_settings.font_size = 18
 	number.label_settings.outline_color = "#000"
-	number.label_settings.outline_size = 1
+	number.label_settings.outline_size = 2
 	
 	call_deferred("add_child", number)
 	

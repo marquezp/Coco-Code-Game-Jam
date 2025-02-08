@@ -1,20 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bugf5ab3tjdro"]
+[gd_scene load_steps=5 format=3 uid="uid://bugf5ab3tjdro"]
 
 [ext_resource type="PackedScene" uid="uid://bdawlfek67s3s" path="res://UI/Shop/shop_slot.tscn" id="1_i0hwk"]
 [ext_resource type="Script" path="res://UI/Shop/Scripts/shop.gd" id="1_l3n5w"]
 [ext_resource type="Script" path="res://UI/Shop/Scripts/shop_items_ui.gd" id="2_4wh41"]
 [ext_resource type="Resource" uid="uid://by81qbuj71ow7" path="res://UI/Shop/shop_items.tres" id="3_d1jan"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6w0pb"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0, 0, 0, 0.345098)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [node name="Shop" type="CanvasLayer"]
 script = ExtResource("1_l3n5w")
@@ -35,68 +24,75 @@ color = Color(0.531725, 0.273198, 0.250967, 1)
 
 [node name="ShopTitle" type="Label" parent="MainPanel"]
 layout_mode = 0
-offset_left = 228.0
-offset_top = 17.0
-offset_right = 424.0
-offset_bottom = 40.0
+offset_left = 188.0
+offset_top = 31.0
+offset_right = 479.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 24
 text = "PIERRE'S POISON PALACE"
 
-[node name="Items" type="PanelContainer" parent="MainPanel"]
-layout_mode = 0
-offset_left = 249.0
-offset_top = 76.0
-offset_right = 405.0
-offset_bottom = 128.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_6w0pb")
-
-[node name="GridContainer" type="GridContainer" parent="MainPanel/Items"]
+[node name="GridContainer" type="GridContainer" parent="MainPanel"]
 layout_mode = 2
+offset_left = 130.0
+offset_top = 131.0
+offset_right = 266.0
+offset_bottom = 163.0
+scale = Vector2(2.88, 2.88)
 theme_override_constants/h_separation = 20
 columns = 3
 script = ExtResource("2_4wh41")
 data = ExtResource("3_d1jan")
 
-[node name="ShopSlot" parent="MainPanel/Items/GridContainer" instance=ExtResource("1_i0hwk")]
+[node name="ShopSlot" parent="MainPanel/GridContainer" instance=ExtResource("1_i0hwk")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ShopSlot2" parent="MainPanel/Items/GridContainer" instance=ExtResource("1_i0hwk")]
+[node name="ShopSlot2" parent="MainPanel/GridContainer" instance=ExtResource("1_i0hwk")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ShopSlot3" parent="MainPanel/Items/GridContainer" instance=ExtResource("1_i0hwk")]
+[node name="ShopSlot3" parent="MainPanel/GridContainer" instance=ExtResource("1_i0hwk")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CleanseButton" type="Button" parent="MainPanel"]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 350.0
-offset_right = 87.0
-offset_bottom = 370.0
-scale = Vector2(3.04, 3.04)
-theme_override_font_sizes/font_size = 8
+offset_left = 32.0
+offset_top = 362.0
+offset_right = 226.0
+offset_bottom = 404.0
+theme_override_font_sizes/font_size = 24
 text = "Cleanse Poisons"
 
 [node name="NextWaveButton" type="Button" parent="MainPanel"]
 layout_mode = 0
-offset_left = 471.0
-offset_top = 347.0
-offset_right = 521.0
-offset_bottom = 367.0
-scale = Vector2(3.04, 3.04)
-theme_override_font_sizes/font_size = 8
+offset_left = 498.0
+offset_top = 362.0
+offset_right = 631.0
+offset_bottom = 404.0
+theme_override_font_sizes/font_size = 24
 text = "Next Wave"
+
+[node name="ItemName" type="Label" parent="."]
+custom_minimum_size = Vector2(500, 0)
+offset_left = 330.0
+offset_top = 357.0
+offset_right = 830.0
+offset_bottom = 385.0
+theme_override_font_sizes/font_size = 20
+text = "Name"
+horizontal_alignment = 1
 
 [node name="ItemDescription" type="Label" parent="."]
 custom_minimum_size = Vector2(250, 0)
 offset_left = 457.0
-offset_top = 248.0
+offset_top = 400.0
 offset_right = 707.0
-offset_bottom = 271.0
-theme_override_font_sizes/font_size = 12
+offset_bottom = 417.0
+theme_override_font_sizes/font_size = 15
+text = "test"
 horizontal_alignment = 1
 autowrap_mode = 3

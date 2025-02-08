@@ -45,6 +45,7 @@ const PLAYERHIT_4 = preload("res://Assets/Audio/playerhit4.wav")
 const PLAYERHIT_5 = preload("res://Assets/Audio/playerhit5.wav")
 const sounds: Array[AudioStreamWAV] = [PLAYERHIT_1,PLAYERHIT_2, PLAYERHIT_3, PLAYERHIT_4, PLAYERHIT_5] 
 
+# Bools and other checkers
 var input_allowed: bool = true
 var is_bleeding: bool = false
 var burn_on: bool = false

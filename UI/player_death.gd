@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var button: Button = $Button
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 const MAIN_MENU = "res://UI/main_menu.tscn"
 
 func _ready():
@@ -12,10 +13,12 @@ func _ready():
 func _on_player_death():
 	get_tree().paused = true
 	visible = true
+	animation_player.play("blur")
 	
 func _on_button_pressed():
 	PlayerManager.remove_buffs()
 	PlayerManager.reset_player_stats()
 	get_tree().paused = false
 	get_tree().change_scene_to_file(MAIN_MENU)
+	animation_player.play_backwards("blur")
 	visible = false

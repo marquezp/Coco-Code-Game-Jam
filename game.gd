@@ -1,10 +1,16 @@
 extends Node2D
 
+const CROSSHAIR = preload("res://Assets/Art/crosshair.png")
 const ENEMY_SPAWNER = preload("res://Utilities/enemy_spawner.tscn")
 const PLAYER = preload("res://Player/player.tscn")
 @onready var shop: CanvasLayer = $UI/Shop
-
 func _ready():
+	# Cursor
+	Input.set_custom_mouse_cursor(
+		CROSSHAIR,
+		Input.CURSOR_ARROW,
+		Vector2(16,16)
+	)
 	# Instantiate the dependancies
 	var enemy_spawner = ENEMY_SPAWNER.instantiate()
 	add_child(enemy_spawner)

@@ -31,6 +31,11 @@ func open_shop():
 	generate_shop_items()
 	update_shop_ui.emit()
 	shop.visible = true
+	Input.set_custom_mouse_cursor(
+		null,
+		Input.CURSOR_ARROW,
+		Vector2(0,0)
+	)
 	
 func close_shop():
 	shop.visible = false
