@@ -19,6 +19,6 @@ region = Rect2(37, 291, 22, 26)
 script = ExtResource("2_78cl3")
 name = "Corrosive Film"
 description = "Decreases damage taken from enemies but slows you down"
-shop_cost = 10
+shop_cost = 3
 texture = SubResource("AtlasTexture_c8ltc")
 effects = Array[ExtResource("1_hwhso")]([SubResource("Resource_j33hd")])

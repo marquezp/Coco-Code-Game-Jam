@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SpawnInfo" load_steps=2 format=3 uid="uid://cyrw5exw72hpa"]
+
+[ext_resource type="Script" path="res://Utilities/spawn_info.gd" id="1_j5wpr"]
+
+[resource]
+script = ExtResource("1_j5wpr")
+total_time = 20
+spawn_delay = 5
+spawn_num = 1
+total_enemies = 0
+enemy_list = Array[int]([1, 2, 3])

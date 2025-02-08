@@ -4,9 +4,10 @@
 [ext_resource type="Resource" uid="uid://d3dct87m0ue4r" path="res://Enemies/Resources/bandit.tres" id="2_n2y81"]
 [ext_resource type="Texture2D" uid="uid://dsi73hg51us01" path="res://Assets/Art/Shadow.png" id="3_862ns"]
 [ext_resource type="Shader" uid="uid://3f2b7ln38qpf" path="res://Utilities/hitflash.tres" id="4_lnims"]
-[ext_resource type="Texture2D" uid="uid://dlg702i1lgkx4" path="res://Assets/Art/banditEnemySpritesheet.png" id="4_qvr6m"]
+[ext_resource type="Texture2D" uid="uid://dax7uen2d3vqt" path="res://Assets/Art/banditEnemySpritesheet.png" id="4_qvr6m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7v86f"]
+resource_local_to_scene = true
 shader = ExtResource("4_lnims")
 shader_parameter/enabled = false
 shader_parameter/tint = Color(1, 1, 1, 1)
@@ -128,7 +129,8 @@ data = ExtResource("2_n2y81")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.215686)
-position = Vector2(-1, 26)
+position = Vector2(-6, 50)
+scale = Vector2(2.04, 2.04)
 texture = ExtResource("3_862ns")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

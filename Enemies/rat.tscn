@@ -164,11 +164,11 @@ hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.42109e-14, -1.42109e-14)
-scale = Vector2(2.88, 2.88)
+scale = Vector2(3.92, 3.92)
 shape = SubResource("CircleShape2D_i4dn3")
 
 [node name="Hitbox" type="Area2D" parent="."]
-scale = Vector2(2.12, 2.12)
+scale = Vector2(2.84, 2.84)
 collision_layer = 0
 collision_mask = 2
 

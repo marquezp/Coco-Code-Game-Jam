@@ -69,7 +69,7 @@ func take_damage(damage, burn: bool = false, is_burn_damage: bool = false) -> vo
 	if health <= 0.0:
 		die()
 		return
-	knock_back()
+	#knock_back()
 	hit_flash_animation_player.play("hit_flash")
 	if burn and !is_burning:
 		is_burning = true

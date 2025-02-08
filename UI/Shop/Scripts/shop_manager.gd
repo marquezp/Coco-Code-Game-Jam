@@ -9,7 +9,7 @@ const ATTSPEED = preload("res://Items/attspeed.tres")
 const REGEN = preload("res://Items/regen.tres")
 
 var shop: CanvasLayer 
-
+const CROSSHAIR = preload("res://Assets/Art/crosshair.png")
 const SHOPKEEPER = preload("res://World/shopkeeper.tscn")
 signal update_shop_ui
 signal despawn_shop
@@ -42,6 +42,11 @@ func close_shop():
 	PlayerManager.set_input_allowed(true)
 	WaveManager.start_next_wave()
 	despawn_shop.emit()
+	Input.set_custom_mouse_cursor(
+		CROSSHAIR,
+		Input.CURSOR_ARROW,
+		Vector2(16,16)
+	)
 
 func buy_item(item: ItemData):
 	# Buying Item

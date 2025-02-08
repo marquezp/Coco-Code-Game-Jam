@@ -25,7 +25,7 @@ const PROJECTILE = preload("res://Player/projectile.tscn")
 @onready var attack_speed : float = base_attack_speed
 
 # Blood (currency for shop)
-@export var blood : int = 50
+@export var blood : int = 0
 
 # Timers, etc
 @onready var attack_timer: Timer = $AttackTimer
@@ -129,6 +129,7 @@ func _physics_process(delta: float) -> void:
 			
 # this is just for incoming projectiles
 func take_damage(value: float, effect: bool = false):
+	make_noise()
 	health -= value * damage_taken
 	if effect:
 		slow_timer.start()

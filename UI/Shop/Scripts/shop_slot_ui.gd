@@ -31,7 +31,7 @@ func item_focused() -> void:
 	)
 	if item_data != null:
 		shop.update_item_description(item_data.description)
-		shop.update_item_name(item_data.name)
+		shop.update_item_name(item_data.name + " ("+str(item_data.shop_cost)+" blood)")
 
 func item_unfocused() -> void:
 	Input.set_custom_mouse_cursor(

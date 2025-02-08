@@ -19,6 +19,6 @@ region = Rect2(451, 291, 26, 26)
 script = ExtResource("1_o6tck")
 name = "Venemous Rush"
 description = "Increases player movement speed but slowly drains health"
-shop_cost = 10
+shop_cost = 8
 texture = SubResource("AtlasTexture_vfttu")
 effects = Array[ExtResource("1_rrn1g")]([SubResource("Resource_xg5c8")])

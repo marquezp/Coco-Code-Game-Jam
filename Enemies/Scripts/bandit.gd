@@ -1,6 +1,6 @@
 class_name Bandit extends BaseEnemy
 
-const PROJECTILE = preload("res://Player/projectile.tscn")
+const BANDIT_PROJECTILE = preload("res://Enemies/bandit_projectile.tscn")
 @onready var special_attack_timer: Timer = $SpecialAttackTimer
 @onready var firing_point1: Marker2D = $Sprite2D/Pivot/FiringPoint1
 @onready var pivot: Marker2D = $Sprite2D/Pivot
@@ -12,7 +12,7 @@ func _ready():
 	
 func special_attack():
 	pivot.look_at((PlayerManager.player.global_position))
-	var new_projectile: Projectile = PROJECTILE.instantiate()
+	var new_projectile: Projectile = BANDIT_PROJECTILE.instantiate()
 	new_projectile.damage = data.projectile_damage
 	new_projectile.speed = 400
 	new_projectile.global_position = firing_point1.global_position

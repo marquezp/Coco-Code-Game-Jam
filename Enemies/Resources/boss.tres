@@ -1,12 +1,60 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://c3u1brege3qck"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=15 format=3 uid="uid://c3u1brege3qck"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/drop_data.gd" id="1_o564f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/enemy_data.gd" id="2_00kj1"]
+[ext_resource type="Resource" uid="uid://dcs2owi45eyha" path="res://Items/armor.tres" id="2_sxfmc"]
+[ext_resource type="Resource" uid="uid://5dfpyxhlbu03" path="res://Items/attspeed.tres" id="3_ugqpk"]
+[ext_resource type="Resource" uid="uid://b8tq6ut8630ms" path="res://Items/damage.tres" id="4_djwfv"]
+[ext_resource type="Resource" uid="uid://deejcgw8i3tlv" path="res://Items/fire.tres" id="5_rjk1h"]
+[ext_resource type="Resource" uid="uid://1xhk752f36le" path="res://Items/regen.tres" id="6_s0ube"]
+[ext_resource type="Resource" uid="uid://cbsojg3tvsv7q" path="res://Items/speed.tres" id="7_6fviv"]
+
+[sub_resource type="Resource" id="Resource_lqwel"]
+script = ExtResource("1_o564f")
+item = ExtResource("2_sxfmc")
+probability = 100.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="Resource" id="Resource_e7s5p"]
+script = ExtResource("1_o564f")
+item = ExtResource("3_ugqpk")
+probability = 100.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="Resource" id="Resource_bvmwy"]
+script = ExtResource("1_o564f")
+item = ExtResource("4_djwfv")
+probability = 100.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="Resource" id="Resource_mpdo2"]
+script = ExtResource("1_o564f")
+item = ExtResource("5_rjk1h")
+probability = 100.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="Resource" id="Resource_v1bru"]
+script = ExtResource("1_o564f")
+item = ExtResource("6_s0ube")
+probability = 100.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="Resource" id="Resource_pw12d"]
+script = ExtResource("1_o564f")
+item = ExtResource("7_6fviv")
+probability = 100.0
+min_amount = 1
+max_amount = 1
 
 [resource]
 script = ExtResource("2_00kj1")
 health = 200.0
-damage = 10.0
+damage = 15.0
 projectile_damage = 2.0
 speed = 150.0
-drops = Array[ExtResource("1_o564f")]([null])
+drops = Array[ExtResource("1_o564f")]([SubResource("Resource_lqwel"), SubResource("Resource_e7s5p"), SubResource("Resource_bvmwy"), SubResource("Resource_mpdo2"), SubResource("Resource_v1bru"), SubResource("Resource_pw12d")])

@@ -1,4 +1,4 @@
-class_name BossProjectile extends Projectile
+class_name BanditProjectile extends Projectile
 
 func _ready():
 	self.body_entered.connect(on_body_entered)
@@ -10,4 +10,4 @@ func _ready():
 func on_body_entered(body):
 	queue_free()
 	if body.has_method("take_damage"):
-		body.take_damage(damage,true)
+		body.take_damage(damage)

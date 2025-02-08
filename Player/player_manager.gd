@@ -78,12 +78,13 @@ func remove_buffs() -> void:
 	for i in range(BUFFS_TAB_DATA.slots.size()):
 		BUFFS_TAB_DATA.remove_item(i)
 	update_buff_ui.emit()
-	reset_player_stats()
+	reset_player_stats(false)
 	
-func reset_player_stats() -> void:
+func reset_player_stats(heal: bool = true) -> void:
 	player.damage = player.base_damage
 	player.burn_on = false
-	player.health = player.base_max_health
+	if heal:
+		player.health = player.base_max_health
 	player.max_health = player.base_max_health
 	player.speed = player.base_speed
 	player.health_regen = player.base_health_regen
