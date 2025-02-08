@@ -6,7 +6,7 @@ const PROJECTILE = preload("res://Player/projectile.tscn")
 @export var base_damage: float = 1.0
 @export var base_damage_taken: float = 10.0
 @export var base_speed: float = 250.0
-@export var base_health_regen: float = 0.0
+@export var base_health_regen: float = 0.2
 @export var base_max_health: float = 100.0
 @export var base_burn: float = 0.0
 @export var base_attack_speed: float = 0.6
@@ -161,3 +161,6 @@ func shoot():
 			health -= burn
 			make_noise()
 			DamageNumbers.display_number(burn,damage_numbers_origin.global_position,true)
+
+	
+	

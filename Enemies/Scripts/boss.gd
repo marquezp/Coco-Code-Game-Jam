@@ -5,7 +5,6 @@ const BOSS_PROJECTILE = preload("res://Enemies/boss_projectile.tscn")
 @onready var firing_point: Marker2D = $Sprite2D/Pivot/FiringPoint
 @onready var pivot: Marker2D = $Sprite2D/Pivot
 
-const POISON = preload("res://Assets/Art/poison.png")
 
 func _ready():
 	special_attack_timer.timeout.connect(special_attack)

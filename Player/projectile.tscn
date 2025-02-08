@@ -12,10 +12,11 @@ collision_layer = 2
 script = ExtResource("1_qaelh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_sl4nl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_qrkae")
 
 [node name="Timer" type="Timer" parent="."]

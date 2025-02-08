@@ -7,5 +7,5 @@ script = ExtResource("1_j7w4i")
 total_time = 20
 spawn_delay = 4
 spawn_num = 2
-total_enemies = 10
+total_enemies = 12
 enemy_list = Array[int]([1, 2])

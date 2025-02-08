@@ -100,7 +100,7 @@ position = Vector2(1, 2)
 shape = SubResource("CircleShape2D_r8au4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_speed = 3.0
+position_smoothing_speed = 10.0
 
 [node name="PlayerHurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
