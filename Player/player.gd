@@ -45,6 +45,8 @@ const PLAYERHIT_4 = preload("res://Assets/Audio/playerhit4.wav")
 const PLAYERHIT_5 = preload("res://Assets/Audio/playerhit5.wav")
 const sounds: Array[AudioStreamWAV] = [PLAYERHIT_1,PLAYERHIT_2, PLAYERHIT_3, PLAYERHIT_4, PLAYERHIT_5] 
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 # Bools and other checkers
 var input_allowed: bool = true
 var is_bleeding: bool = false
@@ -95,6 +97,10 @@ func _physics_process(delta: float) -> void:
 		sprite.scale.x = 1
 	if velocity.x < 0:
 		sprite.scale.x = -1
+	
+	if abs(velocity) > Vector2(0,0):
+		if !animation_player.is_playing():
+			animation_player.play("walk")
 		
 	# Enemy hitbox detection
 	var overlapping_enemies = %PlayerHurtBox.get_overlapping_bodies()
@@ -146,6 +152,7 @@ func shoot():
 	get_parent().add_child(new_projectile)
 	attack_timer.wait_time = attack_speed
 	attack_timer.start()
+	animation_player.play("hawk_twah")
 
 	# Player burns themselves
 	if burn_on:

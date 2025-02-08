@@ -26,7 +26,7 @@ func special_attack():
 		# Jump towards player
 		var tween = get_tree().create_tween()
 		tween.tween_property(self,"position",PlayerManager.player.global_position,0.5)
-		#animation_player.play("jump")
+		animation_player.play("jump")
 		
 		
 		

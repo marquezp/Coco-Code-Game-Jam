@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cn868j3c36oqu"]
+[gd_scene load_steps=11 format=3 uid="uid://cn868j3c36oqu"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_u0c6k"]
-[ext_resource type="Texture2D" uid="uid://jmnmrxbs6w7i" path="res://Assets/Art/icon.svg" id="2_cu40j"]
+[ext_resource type="Texture2D" uid="uid://blooq6h37tjpb" path="res://Assets/Art/playerCharacterSpritesheet.png" id="2_ntg5g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r8au4"]
 radius = 71.4493
@@ -23,6 +23,62 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="Animation" id="Animation_tmkl0"]
+resource_name = "walk"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_68t85"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_lwxsi"]
+resource_name = "hawk_twah"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ka01h"]
+_data = {
+"RESET": SubResource("Animation_68t85"),
+"hawk_twah": SubResource("Animation_lwxsi"),
+"walk": SubResource("Animation_tmkl0")
+}
+
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 collision_layer = 4
@@ -30,7 +86,9 @@ motion_mode = 1
 script = ExtResource("1_u0c6k")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_cu40j")
+texture = ExtResource("2_ntg5g")
+hframes = 2
+vframes = 2
 
 [node name="Pivot" type="Marker2D" parent="PlayerSprite"]
 
@@ -57,9 +115,9 @@ debug_color = Color(0.760518, 0.273358, 0.44995, 0.42)
 [node name="Healthbar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 offset_left = -116.0
-offset_top = 76.0
+offset_top = 106.0
 offset_right = 116.0
-offset_bottom = 103.0
+offset_bottom = 133.0
 theme_override_styles/background = SubResource("StyleBoxFlat_3cvls")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xrdkw")
 value = 100.0
@@ -81,3 +139,8 @@ bus = &"sfx"
 
 [node name="DamageNumbersOrigin" type="Node2D" parent="."]
 position = Vector2(0, -84)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ka01h")
+}
