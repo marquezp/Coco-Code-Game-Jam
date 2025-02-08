@@ -1,6 +1,6 @@
 class_name ItemEffectDamage extends ItemEffect
 
-@export var damage_amount : float = 2.0
+@export var damage_amount : float = 1.5
 @export var damage_taken_amount: float = 2.0
 @export var sound: AudioStream = null
 

@@ -9,10 +9,11 @@ const BOSS_PROJECTILE = preload("res://Enemies/boss_projectile.tscn")
 func _ready():
 	special_attack_timer.timeout.connect(special_attack)
 	burn_timer.timeout.connect(apply_burn)
+	add_to_group("enemy")
 	
 func special_attack():
 	# Ranged Attack
-	if randf() < 0.5:
+	if randf() <= 0.33:
 		pivot.look_at((PlayerManager.player.global_position))
 		var new_projectile: BossProjectile = BOSS_PROJECTILE.instantiate()
 		new_projectile.damage = data.projectile_damage

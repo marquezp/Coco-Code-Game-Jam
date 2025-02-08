@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Items/ItemPickup/item_pickup.gd" id="1_cqoo7"]
 [ext_resource type="AudioStream" uid="uid://die4jf0gc6s83" path="res://Assets/Audio/pickup.ogg" id="2_jme1b"]
-[ext_resource type="Texture2D" uid="uid://lc3v13vht84p" path="res://Assets/Art/blood.png" id="2_lagye"]
 [ext_resource type="Texture2D" uid="uid://dsi73hg51us01" path="res://Assets/Art/Shadow.png" id="3_4x62h"]
 [ext_resource type="AudioStream" uid="uid://dsgxewyibd3ik" path="res://Assets/Audio/African4.ogg" id="3_pa04i"]
+[ext_resource type="Texture2D" uid="uid://myybi06r5eeo" path="res://Assets/Art/monsterBlood.png" id="5_tkuxh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oqu80"]
 
@@ -78,8 +78,8 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_4x62h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.8, 1.8)
-texture = ExtResource("2_lagye")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_tkuxh")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(1.8, 1.8)

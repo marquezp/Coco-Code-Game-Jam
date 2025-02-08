@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 	if interact_radius.visible:
 		if Input.is_action_just_pressed("interact"):
 			for body in overlapping_bodies:
-				print(body)
 				if body.name == "Player":
 					ShopManager.open_shop()
 					interact_radius.visible = false

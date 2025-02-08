@@ -5,10 +5,10 @@
 [ext_resource type="Script" path="res://Items/ItemEffects/item_effect_speed.gd" id="2_1f5ut"]
 [ext_resource type="Texture2D" uid="uid://blvbdo8rwdvqh" path="res://Assets/Art/Icons.png" id="4_n00c4"]
 
-[sub_resource type="Resource" id="Resource_xg5c8"]
+[sub_resource type="Resource" id="Resource_wxhmv"]
 script = ExtResource("2_1f5ut")
 regen_amount = -0.2
-speed_amount = 50.0
+speed_amount = 30.0
 description = ""
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vfttu"]
@@ -21,4 +21,4 @@ name = "Venemous Rush"
 description = "Increases player movement speed but slowly drains health"
 shop_cost = 8
 texture = SubResource("AtlasTexture_vfttu")
-effects = Array[ExtResource("1_rrn1g")]([SubResource("Resource_xg5c8")])
+effects = Array[ExtResource("1_rrn1g")]([SubResource("Resource_wxhmv")])

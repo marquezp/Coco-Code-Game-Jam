@@ -54,7 +54,7 @@ max_amount = 1
 [resource]
 script = ExtResource("2_00kj1")
 health = 200.0
-damage = 15.0
-projectile_damage = 2.0
-speed = 150.0
+damage = 10.0
+projectile_damage = 1.5
+speed = 100.0
 drops = Array[ExtResource("1_o564f")]([SubResource("Resource_lqwel"), SubResource("Resource_e7s5p"), SubResource("Resource_bvmwy"), SubResource("Resource_mpdo2"), SubResource("Resource_v1bru"), SubResource("Resource_pw12d")])

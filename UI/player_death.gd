@@ -8,11 +8,10 @@ const MAIN_MENU = "res://UI/main_menu.tscn"
 func _ready():
 	button.pressed.connect(_on_button_pressed)
 	visible = false
-	print(PlayerManager.player)
 	PlayerManager.health_depleted.connect(_on_player_death)
 	
 func _on_player_death():
-	wave_number.text += str(WaveManager.current_wave_index + 1)
+	wave_number.text += str(WaveManager.current_wave_index) + "/5"
 	get_tree().paused = true
 	visible = true
 	animation_player.play("blur")

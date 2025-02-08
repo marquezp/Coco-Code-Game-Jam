@@ -24,9 +24,10 @@ var times_burnt: int = 0
 
 func _ready():
 	burn_timer.timeout.connect(apply_burn)
+	add_to_group("enemy")
 	
 func apply_burn():
-	if is_burning:
+	if !is_dead and is_burning:
 		if times_burnt <= 2:
 			take_damage(PlayerManager.get_burn_damage(),false,true)
 			times_burnt += 1
@@ -74,21 +75,18 @@ func take_damage(damage, burn: bool = false, is_burn_damage: bool = false) -> vo
 	if burn and !is_burning:
 		is_burning = true
 		burn_timer.start()
-	
-
-func load_drops() -> void:
-	var new_drop : DropData = DropData.new()
-	new_drop.item = BLOOD
-	drops.append(new_drop)
-		
+			
 func die() -> void:
+	if is_dead:
+		return
 	# Await animation here...
 	drop_items()
 	is_dead = true
 	animation_player.play("die")
 	await animation_player.animation_finished
-	WaveManager.enemies_dead += 1
 	queue_free()
+	print("dead: ", self.name)
+	WaveManager.update_enemy_deaths()
 	
 func drop_items() -> void:
 	if drops.size() == 0:

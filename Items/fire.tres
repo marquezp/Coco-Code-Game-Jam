@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="2_sgmmn"]
 [ext_resource type="Texture2D" uid="uid://blvbdo8rwdvqh" path="res://Assets/Art/Icons.png" id="3_0vu3f"]
 
-[sub_resource type="Resource" id="Resource_bjk2d"]
+[sub_resource type="Resource" id="Resource_fentd"]
 script = ExtResource("2_neucv")
 burn_damage = 2.0
 description = ""
@@ -20,4 +20,4 @@ name = "Unstable Flame"
 description = "Enemies take burn damage over time but you have a chance to burn yourself when you fire"
 shop_cost = 5
 texture = SubResource("AtlasTexture_xlnrb")
-effects = Array[ExtResource("1_a2hpp")]([SubResource("Resource_bjk2d")])
+effects = Array[ExtResource("1_a2hpp")]([SubResource("Resource_fentd")])

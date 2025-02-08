@@ -8,13 +8,13 @@ const BANDIT_PROJECTILE = preload("res://Enemies/bandit_projectile.tscn")
 func _ready():
 	special_attack_timer.timeout.connect(special_attack)
 	burn_timer.timeout.connect(apply_burn)
-	load_drops()
+	add_to_group("enemy")
 	
 func special_attack():
 	pivot.look_at((PlayerManager.player.global_position))
 	var new_projectile: Projectile = BANDIT_PROJECTILE.instantiate()
 	new_projectile.damage = data.projectile_damage
-	new_projectile.speed = 400
+	new_projectile.speed = 500
 	new_projectile.global_position = firing_point1.global_position
 	new_projectile.rotation = (position.angle_to_point(PlayerManager.player.global_position))
 	get_parent().add_child(new_projectile)

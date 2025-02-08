@@ -7,7 +7,7 @@ var target_distance: int = 0
 var center_pos = position
 
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	var direction = center_pos.direction_to(get_local_mouse_position())
 	var target_pos = center_pos + direction * target_distance
 	

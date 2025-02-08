@@ -12,6 +12,7 @@ var spawn_info: SpawnInfo
 
 # Sets up a new timer and passes spawn_info to this script
 func begin(wave_info: SpawnInfo):
+	time = 0
 	spawn_info = wave_info
 	timer = Timer.new()
 	timer.timeout.connect(spawn)
@@ -29,21 +30,18 @@ func spawn():
 			1:
 				enemy = ROACH
 			2:
-				enemy = RAT
+				enemy = RAT 
 			3:
 				enemy = BANDIT
 			4:
 				enemy = BOSS
 		if enemy:
-			# Adds as many enemies as spawn_num wants
-			for i in range(spawn_info.spawn_num):
-				var enemy_spawn = enemy.instantiate()
-				enemy_spawn.global_position = get_random_position()
-				add_child(enemy_spawn)
+			var enemy_spawn = enemy.instantiate()
+			enemy_spawn.global_position = get_random_position()
+			add_child(enemy_spawn)
 	else:
 		timer.timeout.disconnect(spawn)
 		timer.stop()
-		time = 0
 		
 func get_random_position() -> Vector2:
 	%PathFollow2D.progress_ratio = randf()

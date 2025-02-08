@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://Items/ItemEffects/item_effect_health.gd" id="2_i6nqa"]
 [ext_resource type="Texture2D" uid="uid://blvbdo8rwdvqh" path="res://Assets/Art/Icons.png" id="4_pqmk8"]
 
-[sub_resource type="Resource" id="Resource_m7flk"]
+[sub_resource type="Resource" id="Resource_w32rn"]
 script = ExtResource("2_i6nqa")
-health_amount = 20.0
+health_amount = 30.0
 description = ""
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ll6qy"]
@@ -20,4 +20,4 @@ name = "Health"
 description = "Heals the player"
 shop_cost = 0
 texture = SubResource("AtlasTexture_ll6qy")
-effects = Array[ExtResource("1_fkuy0")]([SubResource("Resource_m7flk")])
+effects = Array[ExtResource("1_fkuy0")]([SubResource("Resource_w32rn")])

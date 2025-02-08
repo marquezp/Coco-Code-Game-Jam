@@ -5,10 +5,10 @@
 [ext_resource type="Script" path="res://Items/ItemEffects/item_effect_armor.gd" id="2_wwi56"]
 [ext_resource type="Texture2D" uid="uid://blvbdo8rwdvqh" path="res://Assets/Art/Icons.png" id="3_y8kb5"]
 
-[sub_resource type="Resource" id="Resource_j33hd"]
+[sub_resource type="Resource" id="Resource_0s02l"]
 script = ExtResource("2_wwi56")
-armor_amount = -2.0
-speed_amount = -50.0
+armor_amount = -4.0
+speed_amount = -30.0
 description = ""
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c8ltc"]
@@ -21,4 +21,4 @@ name = "Corrosive Film"
 description = "Decreases damage taken from enemies but slows you down"
 shop_cost = 3
 texture = SubResource("AtlasTexture_c8ltc")
-effects = Array[ExtResource("1_hwhso")]([SubResource("Resource_j33hd")])
+effects = Array[ExtResource("1_hwhso")]([SubResource("Resource_0s02l")])

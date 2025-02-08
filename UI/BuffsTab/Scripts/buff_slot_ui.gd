@@ -2,7 +2,7 @@ class_name BuffSlotUI extends Panel
 
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var label: Label = $Label
-@onready var buffs_tab: CanvasLayer = $"../../.."
+@onready var buffs_tab: CanvasLayer = $"../../"
 
 var slot_data : SlotData : set = set_slot_data
 

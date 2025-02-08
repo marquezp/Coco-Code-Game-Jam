@@ -1,18 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://brl6cblhoy7du"]
 
 [ext_resource type="Script" path="res://UI/blood_ui.gd" id="1_jgnnb"]
-[ext_resource type="Texture2D" uid="uid://lc3v13vht84p" path="res://Assets/Art/blood.png" id="2_1ur2l"]
+[ext_resource type="Texture2D" uid="uid://myybi06r5eeo" path="res://Assets/Art/monsterBlood.png" id="2_ay20g"]
 
 [node name="BloodUI" type="CanvasLayer"]
 script = ExtResource("1_jgnnb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 1094.0
-offset_top = 10.0
-offset_right = 1134.0
-offset_bottom = 50.0
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_1ur2l")
+offset_left = 1104.0
+offset_top = 19.0
+offset_right = 1144.0
+offset_bottom = 59.0
+texture = ExtResource("2_ay20g")
 
 [node name="Amount" type="Label" parent="."]
 offset_left = 1070.0

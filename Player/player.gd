@@ -6,13 +6,13 @@ const PROJECTILE = preload("res://Player/projectile.tscn")
 @export var base_damage: float = 1.0
 @export var base_damage_taken: float = 10.0
 @export var base_speed: float = 250.0
-@export var base_health_regen: float = 0.2
+@export var base_health_regen: float = 0.0
 @export var base_max_health: float = 100.0
 @export var base_burn: float = 0.0
 @export var base_attack_speed: float = 0.6
 
 # other exports
-@export var self_burn_chance: float = 0.15
+@export var self_burn_chance: float = 0.12
 
 # Current player attributes
 @onready var damage: float = base_damage
@@ -107,19 +107,18 @@ func _physics_process(delta: float) -> void:
 	var overlapping_enemies = %PlayerHurtBox.get_overlapping_bodies()
 	if overlapping_enemies.size() > 0:
 		for enemy in overlapping_enemies:
-			print(enemy.name)
-			make_noise()
 			sprite.modulate = "#FF3030"
 			health -= damage_taken * enemy.data.damage * delta
 			if enemy.name == "Rat":
 				if !is_bleeding:
 					is_bleeding = true
+		make_noise()
 		
 	# Health Regen
 	if input_allowed:
 		if health_regen < 0:
 			health += health_regen * delta
-		elif health < 100:
+		elif health < max_health:
 			health += health_regen * delta
 		
 	# Update health and currency
@@ -127,6 +126,7 @@ func _physics_process(delta: float) -> void:
 	
 	if health <= 0:
 		PlayerManager.health_depleted.emit()
+		WaveManager.current_wave_index = 0
 		input_allowed = false
 	
 	# Shooting projectiles
@@ -160,7 +160,6 @@ func shoot():
 	# Player burns themselves
 	if burn_on:
 		if randf() < self_burn_chance: # chance to burn yourself
-			print("burnt myself for ", burn)
 			health -= burn
 			make_noise()
 			DamageNumbers.display_number(burn,damage_numbers_origin.global_position,true)

@@ -4,8 +4,6 @@
 
 [resource]
 script = ExtResource("1_som1x")
-total_time = 30
-spawn_delay = 3
-spawn_num = 2
-total_enemies = 20
+total_time = 36
+spawn_delay = 2
 enemy_list = Array[int]([1, 2, 3])

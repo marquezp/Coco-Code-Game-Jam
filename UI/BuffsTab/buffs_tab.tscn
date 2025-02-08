@@ -1,51 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgkrpfyapxya1"]
+[gd_scene load_steps=5 format=3 uid="uid://dgkrpfyapxya1"]
 
 [ext_resource type="PackedScene" uid="uid://b1f6td0i0d5p3" path="res://UI/BuffsTab/buff_slot.tscn" id="1_f1t5k"]
 [ext_resource type="Script" path="res://UI/BuffsTab/Scripts/buffs_tab_ui.gd" id="1_ldnr3"]
 [ext_resource type="Script" path="res://UI/BuffsTab/Scripts/buffs_tab.gd" id="1_vwuww"]
 [ext_resource type="Resource" uid="uid://dqkbvbfvjtqcd" path="res://UI/BuffsTab/player_buffs_tab.tres" id="3_wuloq"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6w0pb"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.054902, 0.054902, 0.054902, 0.552941)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
 [node name="BuffsTab" type="CanvasLayer"]
 script = ExtResource("1_vwuww")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-offset_left = 842.0
-offset_top = 563.0
-offset_right = 1038.0
-offset_bottom = 615.0
-scale = Vector2(1.56, 1.56)
-theme_override_styles/panel = SubResource("StyleBoxFlat_6w0pb")
-
-[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
-layout_mode = 2
-columns = 5
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 941.0
+offset_top = 577.0
+offset_right = 1117.0
+offset_bottom = 609.0
+scale = Vector2(1.76, 1.76)
+columns = 3
 script = ExtResource("1_ldnr3")
 data = ExtResource("3_wuloq")
 
-[node name="BuffSlot1" parent="PanelContainer/GridContainer" instance=ExtResource("1_f1t5k")]
+[node name="BuffSlot1" parent="GridContainer" instance=ExtResource("1_f1t5k")]
 layout_mode = 2
 
-[node name="BuffSlot2" parent="PanelContainer/GridContainer" instance=ExtResource("1_f1t5k")]
+[node name="BuffSlot2" parent="GridContainer" instance=ExtResource("1_f1t5k")]
 layout_mode = 2
 
-[node name="BuffSlot3" parent="PanelContainer/GridContainer" instance=ExtResource("1_f1t5k")]
-layout_mode = 2
-
-[node name="BuffSlot4" parent="PanelContainer/GridContainer" instance=ExtResource("1_f1t5k")]
-layout_mode = 2
-
-[node name="BuffSlot5" parent="PanelContainer/GridContainer" instance=ExtResource("1_f1t5k")]
+[node name="BuffSlot3" parent="GridContainer" instance=ExtResource("1_f1t5k")]
 layout_mode = 2
 
 [node name="ItemDescription" type="Label" parent="."]

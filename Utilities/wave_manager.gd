@@ -13,13 +13,12 @@ const WAVES : Array[SpawnInfo] = [WAVE1,WAVE2,WAVE3,WAVE4,WAVE5]
 var enemy_spawner: Node2D
 var current_wave_index: int = 0
 var current_wave : SpawnInfo = WAVES[current_wave_index]
-var enemies_dead: int = 0 : set = update_enemy_deaths
-var enemies_to_kill: int
 
-func update_enemy_deaths(value):
-	enemies_dead = value
-	if enemies_dead == enemies_to_kill:
-		wave_over()
+func update_enemy_deaths():
+	# spawn should be done spawning (maybe use signal to make sure)
+	if enemy_spawner.time >= current_wave.total_time:
+		if get_tree().get_nodes_in_group("enemy").size() <= 1:
+			wave_over()
 
 func get_spawner(spawner: Node2D) -> void:
 	enemy_spawner = spawner
@@ -27,14 +26,13 @@ func get_spawner(spawner: Node2D) -> void:
 func start_next_wave():
 	print("Wave ",current_wave_index)
 	enemy_spawner.begin(current_wave)
-	enemies_to_kill = current_wave.total_enemies
-	print("Enemies this round: ", enemies_to_kill)
 
 func wave_over():
-	if current_wave_index == 4:
-		get_tree().change_scene_to_file("res://UI/game_end.tscn")
-	enemies_dead = 0
 	current_wave_index += 1
-	current_wave = WAVES[current_wave_index]
-	ShopManager.spawn_shop()
+	if current_wave_index >= 5:
+		print("we got to index = 5")
+		get_tree().change_scene_to_file("res://UI/game_end.tscn")
+	else:
+		current_wave = WAVES[current_wave_index]
+		ShopManager.spawn_shop()
 	

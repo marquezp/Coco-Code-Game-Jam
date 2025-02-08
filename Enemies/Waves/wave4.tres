@@ -4,8 +4,6 @@
 
 [resource]
 script = ExtResource("1_j5wpr")
-total_time = 60
-spawn_delay = 3
-spawn_num = 2
-total_enemies = 20
+total_time = 48
+spawn_delay = 2
 enemy_list = Array[int]([2, 3])

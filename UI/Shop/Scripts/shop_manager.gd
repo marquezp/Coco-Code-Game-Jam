@@ -24,7 +24,8 @@ func spawn_shop():
 	# Call this after wave end
 	var shopkeeper = SHOPKEEPER.instantiate()
 	shopkeeper.global_position = PlayerManager.player.global_position + Vector2(150,-20)
-	get_tree().current_scene.call_deferred("add_child",shopkeeper)
+	if get_tree().current_scene:
+		get_tree().current_scene.call_deferred("add_child",shopkeeper)
 	
 func open_shop():
 	PlayerManager.set_input_allowed(false)
@@ -52,7 +53,6 @@ func buy_item(item: ItemData):
 	# Buying Item
 	if PlayerManager.get_blood()  >= item.shop_cost: # can we afford it?
 		if PlayerManager.add_buffs(item): # do we have space in the buffs tab?
-			print("I bought the item: ", item.name)
 			PlayerManager.update_blood(-item.shop_cost)
 			# Find the item in the shop Resource and make it null 
 			for i in range(SHOP_ITEMS_RESOURCE.slots.size()):

@@ -6,6 +6,4 @@
 script = ExtResource("1_ro0kc")
 total_time = 1
 spawn_delay = 2
-spawn_num = 1
-total_enemies = 1
 enemy_list = Array[int]([4])
