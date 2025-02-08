@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://qq2ncuuq1kg6"]
 
-[ext_resource type="Texture2D" uid="uid://b3krjgok84d3i" path="res://Assets/Art/poison.png" id="1_ddlhk"]
 [ext_resource type="Script" path="res://Player/projectile.gd" id="1_qaelh"]
+[ext_resource type="Texture2D" uid="uid://crwl54eaopykg" path="res://Assets/Art/playerSpit.png" id="2_sl4nl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qrkae"]
 
@@ -12,12 +12,10 @@ collision_layer = 2
 script = ExtResource("1_qaelh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.02, 0.02)
-texture = ExtResource("1_ddlhk")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_sl4nl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 2)
-scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_qrkae")
 
 [node name="Timer" type="Timer" parent="."]

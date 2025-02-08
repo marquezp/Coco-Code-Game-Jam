@@ -1,19 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://cux0ttuaxmcym"]
 
 [ext_resource type="Script" path="res://Enemies/bandit_projectile.gd" id="1_twgel"]
-[ext_resource type="Texture2D" uid="uid://dp7ti05p8hyxr" path="res://Assets/Art/firework.png" id="2_khss7"]
+[ext_resource type="Texture2D" uid="uid://w83aea7wxy3u" path="res://Assets/Art/banditProjectile.png" id="2_767lu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxosj"]
 
 [node name="BanditProjectile" type="Area2D"]
-rotation = 0.803458
 script = ExtResource("1_twgel")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_nxosj")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_khss7")
+scale = Vector2(0.599999, 0.599999)
+texture = ExtResource("2_767lu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.2, 2.2)
+shape = SubResource("CircleShape2D_nxosj")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

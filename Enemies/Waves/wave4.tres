@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_j5wpr")
-total_time = 30
+total_time = 60
 spawn_delay = 3
 spawn_num = 2
 total_enemies = 20
