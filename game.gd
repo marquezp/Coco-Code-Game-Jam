@@ -4,6 +4,7 @@ const CROSSHAIR = preload("res://Assets/Art/crosshair.png")
 const ENEMY_SPAWNER = preload("res://Utilities/enemy_spawner.tscn")
 const PLAYER = preload("res://Player/player.tscn")
 @onready var shop: CanvasLayer = $UI/Shop
+
 func _ready():
 	# Cursor
 	Input.set_custom_mouse_cursor(

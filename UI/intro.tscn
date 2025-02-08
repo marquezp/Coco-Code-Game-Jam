@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://b17up8epgd0g7"]
+
+[ext_resource type="Texture2D" uid="uid://ci4ycdf6m31m" path="res://Assets/Art/introStill.png" id="1_2q03y"]
+[ext_resource type="Script" path="res://UI/intro.gd" id="1_rnhau"]
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rnhau")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2q03y")
+
+[node name="Label1" type="Label" parent="TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 450.0
+offset_top = 121.0
+offset_right = 689.0
+offset_bottom = 488.0
+theme_override_colors/font_color = Color(0.430746, 0.355684, 0.106831, 1)
+theme_override_font_sizes/font_size = 24
+text = "I have possesion of
+a map that leads out
+of this wasteland.
+
+In return, I humbly
+ask that you deal
+with the putrid
+beast that is in
+control of these
+monsters."
+
+[node name="Label2" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 121.0
+offset_right = 689.0
+offset_bottom = 488.0
+theme_override_colors/font_color = Color(0.430746, 0.355684, 0.106831, 1)
+theme_override_font_sizes/font_size = 24
+text = "If you can bring me
+samples of their blood
+for my research, I may
+be able to brew some
+potions that could aid
+you in taking them
+down.
+Be careful though,
+the brews might
+have some strange
+side effects..."
+
+[node name="Button" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 895.0
+offset_top = 553.0
+offset_right = 1091.0
+offset_bottom = 611.0
+theme_override_font_sizes/font_size = 36
+text = "Continue..."
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true

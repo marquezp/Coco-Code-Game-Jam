@@ -38,6 +38,7 @@ const PROJECTILE = preload("res://Player/projectile.tscn")
 
 # Sound effects
 @onready var audio_stream_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+const SPIT_2 = preload("res://Assets/Audio/spit2.mp3")
 const PLAYERHIT_1 = preload("res://Assets/Audio/playerhit1.wav")
 const PLAYERHIT_2 = preload("res://Assets/Audio/playerhit2.wav")
 const PLAYERHIT_3 = preload("res://Assets/Audio/playerhit3.wav")
@@ -152,6 +153,8 @@ func shoot():
 	get_parent().add_child(new_projectile)
 	attack_timer.wait_time = attack_speed
 	attack_timer.start()
+	audio_stream_player.stream = SPIT_2
+	audio_stream_player.play()
 	animation_player.play("hawk_twah")
 
 	# Player burns themselves

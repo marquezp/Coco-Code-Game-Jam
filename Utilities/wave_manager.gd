@@ -31,6 +31,8 @@ func start_next_wave():
 	print("Enemies this round: ", enemies_to_kill)
 
 func wave_over():
+	if current_wave_index == 4:
+		get_tree().change_scene_to_file("res://UI/game_end.tscn")
 	enemies_dead = 0
 	current_wave_index += 1
 	current_wave = WAVES[current_wave_index]

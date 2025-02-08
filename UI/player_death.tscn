@@ -97,7 +97,7 @@ offset_right = 86.0
 offset_bottom = -219.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Waves Completed: 0/5"
+text = "Waves Completed: "
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

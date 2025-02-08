@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://cxget0hnnjws2"]
+[gd_scene load_steps=14 format=4 uid="uid://cxget0hnnjws2"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_1s6e0"]
 [ext_resource type="PackedScene" uid="uid://dgkrpfyapxya1" path="res://UI/BuffsTab/buffs_tab.tscn" id="4_7kfyx"]
 [ext_resource type="PackedScene" uid="uid://1uespg6c3vnu" path="res://UI/AttributeTab/attributes_tab.tscn" id="4_082cq"]
+[ext_resource type="AudioStream" uid="uid://bgdmq5magj3ue" path="res://Assets/Audio/haunted dad rock.mp3" id="8_1nwsw"]
 [ext_resource type="PackedScene" uid="uid://bugf5ab3tjdro" path="res://UI/Shop/shop.tscn" id="8_16aeq"]
 [ext_resource type="PackedScene" uid="uid://bthc5k7hgx2qo" path="res://UI/player_death.tscn" id="8_gr44q"]
 [ext_resource type="PackedScene" uid="uid://brl6cblhoy7du" path="res://UI/blood_ui.tscn" id="9_ekuh6"]
@@ -916,3 +917,9 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BWallR"]
 shape = SubResource("RectangleShape2D_uitj4")
+
+[node name="BackGroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_1nwsw")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"

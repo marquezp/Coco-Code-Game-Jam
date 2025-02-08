@@ -36,7 +36,7 @@ func open_shop():
 		Input.CURSOR_ARROW,
 		Vector2(0,0)
 	)
-	
+
 func close_shop():
 	shop.visible = false
 	PlayerManager.set_input_allowed(true)

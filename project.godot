@@ -13,7 +13,6 @@ config_version=5
 config/name="poison-game"
 run/main_scene="res://UI/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://Assets/Art/icon.svg"
 
 [autoload]
 

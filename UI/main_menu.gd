@@ -17,7 +17,7 @@ func _ready():
 	back_button.pressed.connect(on_back_pressed)
 	
 func on_play_pressed():
-	get_tree().change_scene_to_file("res://game.tscn")
+	get_tree().change_scene_to_file("res://UI/intro.tscn")
 	
 func on_audio_pressed():
 	audio_settings.visible = true
