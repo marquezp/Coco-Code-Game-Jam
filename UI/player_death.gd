@@ -19,6 +19,7 @@ func _on_player_death():
 func _on_button_pressed():
 	PlayerManager.remove_buffs()
 	PlayerManager.reset_player_stats()
+	WaveManager.current_wave_index = 0
 	get_tree().paused = false
 	get_tree().change_scene_to_file(MAIN_MENU)
 	animation_player.play_backwards("blur")

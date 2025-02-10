@@ -24,6 +24,7 @@ func _ready():
 	PlayerManager.get_player(player)
 	WaveManager.get_spawner(enemy_spawner)
 	# Start the waves
+	WaveManager.current_wave_index = 0
 	WaveManager.start_next_wave()
 
 	

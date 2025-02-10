@@ -25,6 +25,7 @@ func get_spawner(spawner: Node2D) -> void:
 	
 func start_next_wave():
 	print("Wave ",current_wave_index)
+	current_wave = WAVES[current_wave_index]
 	enemy_spawner.begin(current_wave)
 
 func wave_over():
@@ -33,6 +34,5 @@ func wave_over():
 		print("we got to index = 5")
 		get_tree().change_scene_to_file("res://UI/game_end.tscn")
 	else:
-		current_wave = WAVES[current_wave_index]
 		ShopManager.spawn_shop()
 	
